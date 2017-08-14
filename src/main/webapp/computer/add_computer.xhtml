@@ -197,285 +197,425 @@
                                         <p:outputLabel value="2.13" ></p:outputLabel>
                                     </p:column>
                                     <p:column colspan="3" >
-                                        <p:inputText id="otherComopnent2" value="#{computerController.selected.otherComopnent2}" title="OtherComopnent2" />
-                                        <p:selectBooleanCheckbox id="other2" value="#{computerController.selected.other2}" title="Other2" />
+                                        <p:inputText  value="#{computerController.selected.otherComopnent2}" title="OtherComopnent2" />
+                                        <p:selectBooleanCheckbox  value="#{computerController.selected.other2}" title="Other2" />
                                     </p:column>
                                 </p:row>
 
 
-                                <h:panelGroup rendered="false" >
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.7" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="Sound card" for="soc" />
+                                        <p:selectBooleanCheckbox id="soc" value="#{computerController.selected.soundCard}" title="Sound Card" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel value="2.14" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:inputText  value="#{computerController.selected.otherComopnent3}" title="OtherComopnent2" />
+                                        <p:selectBooleanCheckbox  value="#{computerController.selected.other3}" title="Other2" />
+                                    </p:column>
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.8" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="TV card" for="tvc" />
+                                        <p:selectBooleanCheckbox id="tvc" value="#{computerController.selected.tvCard}" title="TV Card" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel value="2.15" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:inputText  value="#{computerController.selected.otherComopnent4}" title="OtherComopnent2" />
+                                        <p:selectBooleanCheckbox  value="#{computerController.selected.other4}" title="Other2" />
+                                    </p:column>
+                                </p:row>
+
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.9" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="Network card" for="nwc" />
+                                        <p:selectBooleanCheckbox id="nwc" value="#{computerController.selected.soundCard}" title="Network Card" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel value="2.16" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:inputText  value="#{computerController.selected.otherComopnent4}" title="OtherComopnent2" />
+                                        <p:selectBooleanCheckbox  value="#{computerController.selected.other4}" title="Other2" />
+                                    </p:column>
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.10" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="Moderm External" for="me" />
+                                        <p:selectBooleanCheckbox id="me" value="#{computerController.selected.externalModerm}" title="External Moderm" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel value="2.17" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:inputText  value="#{computerController.selected.otherComopnent4}" title="OtherComopnent2" />
+                                        <p:selectBooleanCheckbox  value="#{computerController.selected.other4}" title="Other2" />
+                                    </p:column>
+                                </p:row>
+
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.11" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="Moderm - Internal" for="mi" />
+                                        <p:selectBooleanCheckbox id="mi" value="#{computerController.selected.externalModerm}" title="Internal Moderm" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+
+                                    </p:column>
+                                    <p:column colspan="3" >
+
+                                    </p:column>
+                                </p:row>
+
+
+                                <p:row >
+                                    <p:column colspan="8" >
+                                        <p:outputLabel value="Subtotal Cost (from 2.1 to 2.17" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:inputText id="subTotalCost2_1To2_17" value="#{computerController.selected.subTotalCost2_1To2_17}" title="SubTotalCost2_1To2_17" />
+
+                                    </p:column>
+
+                                </p:row>
+
+                                <p:row >
+                                    <p:column rowspan="8" >
+                                        <p:outputLabel value="3" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column  rowspan="8"  colspan="2" >
+                                        <p:outputLabel value="Input Devices" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:outputLabel for="kb" value="Keyboard" ></p:outputLabel>
+                                        <p:selectBooleanCheckbox id="kb" value="#{computerController.selected.keyboard}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Serial" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.keyboardSerial}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Cost" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.keyboardCost}"  />
+                                    </p:column>
+
+                                </p:row>
+
+                                <p:row >
+
+                                    <p:column colspan="3" >
+                                        <p:outputLabel for="mou" value="Mouse" ></p:outputLabel>
+                                        <p:selectBooleanCheckbox id="mou" value="#{computerController.selected.mouse}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Serial" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.mouseSerial}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Cost" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.mouseCost}"  />
+                                    </p:column>
+
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="2" rowspan="2" >
+                                        <p:outputLabel value="Microphone" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel for="intmic" value="Internal" ></p:outputLabel>
+                                        <p:selectBooleanCheckbox id="intmic" value="#{computerController.selected.internalMicrophone}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Cost" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.internalMicrophoneCost}"  />
+                                    </p:column>
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="1" >
+                                        <p:outputLabel for="extmic" value="External" ></p:outputLabel>
+                                        <p:selectBooleanCheckbox id="extmic" value="#{computerController.selected.externalMicrophone}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Serial" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.microphoneSerial}"  />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Cost" ></p:outputLabel>
+                                        <p:inputText  value="#{computerController.selected.externalMicrophoneCost}"  />
+                                    </p:column>
+                                </p:row>
 
 
 
 
 
 
-                                    <p:inputText id="soundCard" value="#{computerController.selected.soundCard}" title="SoundCard" />
-                                    <p:outputLabel value="TvCard:" for="tvCard" />
-                                    <p:inputText id="tvCard" value="#{computerController.selected.tvCard}" title="TvCard" />
-                                    <p:outputLabel value="NetworkCard:" for="networkCard" />
-                                    <p:inputText id="networkCard" value="#{computerController.selected.networkCard}" title="NetworkCard" />
-                                    <p:outputLabel value="ExternalModerm:" for="externalModerm" />
-                                    <p:inputText id="externalModerm" value="#{computerController.selected.externalModerm}" title="ExternalModerm" />
-                                    <p:outputLabel value="InternalModerm:" for="internalModerm" />
-                                    <p:inputText id="internalModerm" value="#{computerController.selected.internalModerm}" title="InternalModerm" />
-                                    <p:outputLabel value="Other2:" for="other2" />
-                                    <p:inputText id="other2" value="#{computerController.selected.other2}" title="Other2" />
-                                    <p:outputLabel value="OtherComopnent2:" for="otherComopnent2" />
-                                    <p:inputText id="otherComopnent2" value="#{computerController.selected.otherComopnent2}" title="OtherComopnent2" />
-                                    <p:outputLabel value="Other3:" for="other3" />
-                                    <p:inputText id="other3" value="#{computerController.selected.other3}" title="Other3" />
-                                    <p:outputLabel value="OtherComopnent3:" for="otherComopnent3" />
-                                    <p:inputText id="otherComopnent3" value="#{computerController.selected.otherComopnent3}" title="OtherComopnent3" />
-                                    <p:outputLabel value="Other4:" for="other4" />
-                                    <p:inputText id="other4" value="#{computerController.selected.other4}" title="Other4" />
-                                    <p:outputLabel value="OtherComopnent4:" for="otherComopnent4" />
-                                    <p:inputText id="otherComopnent4" value="#{computerController.selected.otherComopnent4}" title="OtherComopnent4" />
-                                    <p:outputLabel value="Other5:" for="other5" />
-                                    <p:inputText id="other5" value="#{computerController.selected.other5}" title="Other5" />
-                                    <p:outputLabel value="OtherComopnent5:" for="otherComopnent5" />
-                                    <p:inputText id="otherComopnent5" value="#{computerController.selected.otherComopnent5}" title="OtherComopnent5" />
-                                    <p:outputLabel value="Other6:" for="other6" />
-                                    <p:inputText id="other6" value="#{computerController.selected.other6}" title="Other6" />
-                                    <p:outputLabel value="OtherComopnent6:" for="otherComopnent6" />
-                                    <p:inputText id="otherComopnent6" value="#{computerController.selected.otherComopnent6}" title="OtherComopnent6" />
-                                    <p:outputLabel value="Other7:" for="other7" />
-                                    <p:inputText id="other7" value="#{computerController.selected.other7}" title="Other7" />
-                                    <p:outputLabel value="OtherComopnent7:" for="otherComopnent7" />
-                                    <p:inputText id="otherComopnent7" value="#{computerController.selected.otherComopnent7}" title="OtherComopnent7" />
-                                    <p:outputLabel value="SubTotalCost2_1To2_17:" for="subTotalCost2_1To2_17" />
-                                    <p:inputText id="subTotalCost2_1To2_17" value="#{computerController.selected.subTotalCost2_1To2_17}" title="SubTotalCost2_1To2_17" />
-                                    <p:outputLabel value="Keyboard:" for="keyboard" />
-                                    <p:inputText id="keyboard" value="#{computerController.selected.keyboard}" title="Keyboard" />
-                                    <p:outputLabel value="KeyboardSerial:" for="keyboardSerial" />
-                                    <p:inputText id="keyboardSerial" value="#{computerController.selected.keyboardSerial}" title="KeyboardSerial" />
-                                    <p:outputLabel value="KeyboardCost:" for="keyboardCost" />
-                                    <p:inputText id="keyboardCost" value="#{computerController.selected.keyboardCost}" title="KeyboardCost" />
-                                    <p:outputLabel value="Mouse:" for="mouse" />
-                                    <p:inputText id="mouse" value="#{computerController.selected.mouse}" title="Mouse" />
-                                    <p:outputLabel value="MouseSerial:" for="mouseSerial" />
-                                    <p:inputText id="mouseSerial" value="#{computerController.selected.mouseSerial}" title="MouseSerial" />
-                                    <p:outputLabel value="MouseCost:" for="mouseCost" />
-                                    <p:inputText id="mouseCost" value="#{computerController.selected.mouseCost}" title="MouseCost" />
-                                    <p:outputLabel value="InternalMicrophone:" for="internalMicrophone" />
-                                    <p:inputText id="internalMicrophone" value="#{computerController.selected.internalMicrophone}" title="InternalMicrophone" />
-                                    <p:outputLabel value="ExternalMicrophone:" for="externalMicrophone" />
-                                    <p:inputText id="externalMicrophone" value="#{computerController.selected.externalMicrophone}" title="ExternalMicrophone" />
-                                    <p:outputLabel value="MicrophoneSerial:" for="microphoneSerial" />
-                                    <p:inputText id="microphoneSerial" value="#{computerController.selected.microphoneSerial}" title="MicrophoneSerial" />
-                                    <p:outputLabel value="InternalMicrophoneCost:" for="internalMicrophoneCost" />
-                                    <p:inputText id="internalMicrophoneCost" value="#{computerController.selected.internalMicrophoneCost}" title="InternalMicrophoneCost" />
-                                    <p:outputLabel value="ExternalMicrophoneCost:" for="externalMicrophoneCost" />
-                                    <p:inputText id="externalMicrophoneCost" value="#{computerController.selected.externalMicrophoneCost}" title="ExternalMicrophoneCost" />
-                                    <p:outputLabel value="Scanner:" for="scanner" />
-                                    <p:inputText id="scanner" value="#{computerController.selected.scanner}" title="Scanner" />
-                                    <p:outputLabel value="ScannerMake:" for="scannerMake" />
-                                    <p:inputText id="scannerMake" value="#{computerController.selected.scannerMake}" title="ScannerMake" />
-                                    <p:outputLabel value="ScannerModel:" for="scannerModel" />
-                                    <p:inputText id="scannerModel" value="#{computerController.selected.scannerModel}" title="ScannerModel" />
-                                    <p:outputLabel value="ScannerSerial:" for="scannerSerial" />
-                                    <p:inputText id="scannerSerial" value="#{computerController.selected.scannerSerial}" title="ScannerSerial" />
-                                    <p:outputLabel value="ScannerDateOfPurchase:" for="scannerDateOfPurchase" />
-                                    <p:inputText id="scannerDateOfPurchase" value="#{computerController.selected.scannerDateOfPurchase}" title="ScannerDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="MonitorMake:" for="monitorMake" />
-                                    <p:inputText id="monitorMake" value="#{computerController.selected.monitorMake}" title="MonitorMake" />
-                                    <p:outputLabel value="MonitorModel:" for="monitorModel" />
-                                    <p:inputText id="monitorModel" value="#{computerController.selected.monitorModel}" title="MonitorModel" />
-                                    <p:outputLabel value="MonitorSerial:" for="monitorSerial" />
-                                    <p:inputText id="monitorSerial" value="#{computerController.selected.monitorSerial}" title="MonitorSerial" />
-                                    <p:outputLabel value="MonitorDateOfPurchase:" for="monitorDateOfPurchase" />
-                                    <p:inputText id="monitorDateOfPurchase" value="#{computerController.selected.monitorDateOfPurchase}" title="MonitorDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="MonitorCost:" for="monitorCost" />
-                                    <p:inputText id="monitorCost" value="#{computerController.selected.monitorCost}" title="MonitorCost" />
-                                    <p:outputLabel value="PrinterMake:" for="printerMake" />
-                                    <p:inputText id="printerMake" value="#{computerController.selected.printerMake}" title="PrinterMake" />
-                                    <p:outputLabel value="PrinterModel:" for="printerModel" />
-                                    <p:inputText id="printerModel" value="#{computerController.selected.printerModel}" title="PrinterModel" />
-                                    <p:outputLabel value="PrinterSerial:" for="printerSerial" />
-                                    <p:inputText id="printerSerial" value="#{computerController.selected.printerSerial}" title="PrinterSerial" />
-                                    <p:outputLabel value="PrinterDateOfPurchase:" for="printerDateOfPurchase" />
-                                    <p:inputText id="printerDateOfPurchase" value="#{computerController.selected.printerDateOfPurchase}" title="PrinterDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="PrinterCost:" for="printerCost" />
-                                    <p:inputText id="printerCost" value="#{computerController.selected.printerCost}" title="PrinterCost" />
-                                    <p:outputLabel value="SpeakerMake:" for="speakerMake" />
-                                    <p:inputText id="speakerMake" value="#{computerController.selected.speakerMake}" title="SpeakerMake" />
-                                    <p:outputLabel value="SpeakerModel:" for="speakerModel" />
-                                    <p:inputText id="speakerModel" value="#{computerController.selected.speakerModel}" title="SpeakerModel" />
-                                    <p:outputLabel value="SpeakerSerial:" for="speakerSerial" />
-                                    <p:inputText id="speakerSerial" value="#{computerController.selected.speakerSerial}" title="SpeakerSerial" />
-                                    <p:outputLabel value="SpeakerDateOfPurchase:" for="speakerDateOfPurchase" />
-                                    <p:inputText id="speakerDateOfPurchase" value="#{computerController.selected.speakerDateOfPurchase}" title="SpeakerDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="SpeakerCost:" for="speakerCost" />
-                                    <p:inputText id="speakerCost" value="#{computerController.selected.speakerCost}" title="SpeakerCost" />
-                                    <p:outputLabel value="UpsMake:" for="upsMake" />
-                                    <p:inputText id="upsMake" value="#{computerController.selected.upsMake}" title="UpsMake" />
-                                    <p:outputLabel value="UpsModel:" for="upsModel" />
-                                    <p:inputText id="upsModel" value="#{computerController.selected.upsModel}" title="UpsModel" />
-                                    <p:outputLabel value="UpsSerial:" for="upsSerial" />
-                                    <p:inputText id="upsSerial" value="#{computerController.selected.upsSerial}" title="UpsSerial" />
-                                    <p:outputLabel value="UpsDateOfPurchase:" for="upsDateOfPurchase" />
-                                    <p:inputText id="upsDateOfPurchase" value="#{computerController.selected.upsDateOfPurchase}" title="UpsDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="UpsCost:" for="upsCost" />
-                                    <p:inputText id="upsCost" value="#{computerController.selected.upsCost}" title="UpsCost" />
-                                    <p:outputLabel value="StabilizerMake:" for="stabilizerMake" />
-                                    <p:inputText id="stabilizerMake" value="#{computerController.selected.stabilizerMake}" title="StabilizerMake" />
-                                    <p:outputLabel value="StabilizerModel:" for="stabilizerModel" />
-                                    <p:inputText id="stabilizerModel" value="#{computerController.selected.stabilizerModel}" title="StabilizerModel" />
-                                    <p:outputLabel value="StabilizerSerial:" for="stabilizerSerial" />
-                                    <p:inputText id="stabilizerSerial" value="#{computerController.selected.stabilizerSerial}" title="StabilizerSerial" />
-                                    <p:outputLabel value="StabilizerDateOfPurchase:" for="stabilizerDateOfPurchase" />
-                                    <p:inputText id="stabilizerDateOfPurchase" value="#{computerController.selected.stabilizerDateOfPurchase}" title="StabilizerDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="StabilizerCost:" for="stabilizerCost" />
-                                    <p:inputText id="stabilizerCost" value="#{computerController.selected.stabilizerCost}" title="StabilizerCost" />
-                                    <p:outputLabel value="CablesMake:" for="cablesMake" />
-                                    <p:inputText id="cablesMake" value="#{computerController.selected.cablesMake}" title="CablesMake" />
-                                    <p:outputLabel value="CablesDescription:" for="cablesDescription" />
-                                    <p:inputText id="cablesDescription" value="#{computerController.selected.cablesDescription}" title="CablesDescription" />
-                                    <p:outputLabel value="CablesModel:" for="cablesModel" />
-                                    <p:inputText id="cablesModel" value="#{computerController.selected.cablesModel}" title="CablesModel" />
-                                    <p:outputLabel value="CablesSerial:" for="cablesSerial" />
-                                    <p:inputText id="cablesSerial" value="#{computerController.selected.cablesSerial}" title="CablesSerial" />
-                                    <p:outputLabel value="CablesDateOfPurchase:" for="cablesDateOfPurchase" />
-                                    <p:inputText id="cablesDateOfPurchase" value="#{computerController.selected.cablesDateOfPurchase}" title="CablesDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="CablesCost:" for="cablesCost" />
-                                    <p:inputText id="cablesCost" value="#{computerController.selected.cablesCost}" title="CablesCost" />
-                                    <p:outputLabel value="OthersMake:" for="othersMake" />
-                                    <p:inputText id="othersMake" value="#{computerController.selected.othersMake}" title="OthersMake" />
-                                    <p:outputLabel value="OthersDescription:" for="othersDescription" />
-                                    <p:inputText id="othersDescription" value="#{computerController.selected.othersDescription}" title="OthersDescription" />
-                                    <p:outputLabel value="OthersModel:" for="othersModel" />
-                                    <p:inputText id="othersModel" value="#{computerController.selected.othersModel}" title="OthersModel" />
-                                    <p:outputLabel value="OthersSerial:" for="othersSerial" />
-                                    <p:inputText id="othersSerial" value="#{computerController.selected.othersSerial}" title="OthersSerial" />
-                                    <p:outputLabel value="OthersDateOfPurchase:" for="othersDateOfPurchase" />
-                                    <p:inputText id="othersDateOfPurchase" value="#{computerController.selected.othersDateOfPurchase}" title="OthersDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="OthersCost:" for="othersCost" />
-                                    <p:inputText id="othersCost" value="#{computerController.selected.othersCost}" title="OthersCost" />
-                                    <p:outputLabel value="OperatingSystem:" for="operatingSystem" />
-                                    <p:inputText id="operatingSystem" value="#{computerController.selected.operatingSystem}" title="OperatingSystem" />
-                                    <p:outputLabel value="OperatingSystemCost:" for="operatingSystemCost" />
-                                    <p:inputText id="operatingSystemCost" value="#{computerController.selected.operatingSystemCost}" title="OperatingSystemCost" />
-                                    <p:outputLabel value="InternetEmail:" for="internetEmail" />
-                                    <p:inputText id="internetEmail" value="#{computerController.selected.internetEmail}" title="InternetEmail" />
-                                    <p:outputLabel value="InternetEmailDateOfPurchase:" for="internetEmailDateOfPurchase" />
-                                    <p:inputText id="internetEmailDateOfPurchase" value="#{computerController.selected.internetEmailDateOfPurchase}" title="InternetEmailDateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="InternetEmailCost:" for="internetEmailCost" />
-                                    <p:inputText id="internetEmailCost" value="#{computerController.selected.internetEmailCost}" title="InternetEmailCost" />
-                                    <p:outputLabel value="AdditionalSoftware1Description:" for="additionalSoftware1Description" />
-                                    <p:inputText id="additionalSoftware1Description" value="#{computerController.selected.additionalSoftware1Description}" title="AdditionalSoftware1Description" />
-                                    <p:outputLabel value="AdditionalSoftware1DateOfPurchase:" for="additionalSoftware1DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware1DateOfPurchase" value="#{computerController.selected.additionalSoftware1DateOfPurchase}" title="AdditionalSoftware1DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware1Cost:" for="additionalSoftware1Cost" />
-                                    <p:inputText id="additionalSoftware1Cost" value="#{computerController.selected.additionalSoftware1Cost}" title="AdditionalSoftware1Cost" />
-                                    <p:outputLabel value="AdditionalSoftware2Description:" for="additionalSoftware2Description" />
-                                    <p:inputText id="additionalSoftware2Description" value="#{computerController.selected.additionalSoftware2Description}" title="AdditionalSoftware2Description" />
-                                    <p:outputLabel value="AdditionalSoftware2DateOfPurchase:" for="additionalSoftware2DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware2DateOfPurchase" value="#{computerController.selected.additionalSoftware2DateOfPurchase}" title="AdditionalSoftware2DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware2Cost:" for="additionalSoftware2Cost" />
-                                    <p:inputText id="additionalSoftware2Cost" value="#{computerController.selected.additionalSoftware2Cost}" title="AdditionalSoftware2Cost" />
-                                    <p:outputLabel value="AdditionalSoftware3Description:" for="additionalSoftware3Description" />
-                                    <p:inputText id="additionalSoftware3Description" value="#{computerController.selected.additionalSoftware3Description}" title="AdditionalSoftware3Description" />
-                                    <p:outputLabel value="AdditionalSoftware3DateOfPurchase:" for="additionalSoftware3DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware3DateOfPurchase" value="#{computerController.selected.additionalSoftware3DateOfPurchase}" title="AdditionalSoftware3DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware3Cost:" for="additionalSoftware3Cost" />
-                                    <p:inputText id="additionalSoftware3Cost" value="#{computerController.selected.additionalSoftware3Cost}" title="AdditionalSoftware3Cost" />
-                                    <p:outputLabel value="AdditionalSoftware4Description:" for="additionalSoftware4Description" />
-                                    <p:inputText id="additionalSoftware4Description" value="#{computerController.selected.additionalSoftware4Description}" title="AdditionalSoftware4Description" />
-                                    <p:outputLabel value="AdditionalSoftware4DateOfPurchase:" for="additionalSoftware4DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware4DateOfPurchase" value="#{computerController.selected.additionalSoftware4DateOfPurchase}" title="AdditionalSoftware4DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware4Cost:" for="additionalSoftware4Cost" />
-                                    <p:inputText id="additionalSoftware4Cost" value="#{computerController.selected.additionalSoftware4Cost}" title="AdditionalSoftware4Cost" />
-                                    <p:outputLabel value="AdditionalSoftware5Description:" for="additionalSoftware5Description" />
-                                    <p:inputText id="additionalSoftware5Description" value="#{computerController.selected.additionalSoftware5Description}" title="AdditionalSoftware5Description" />
-                                    <p:outputLabel value="AdditionalSoftware5DateOfPurchase:" for="additionalSoftware5DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware5DateOfPurchase" value="#{computerController.selected.additionalSoftware5DateOfPurchase}" title="AdditionalSoftware5DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware5Cost:" for="additionalSoftware5Cost" />
-                                    <p:inputText id="additionalSoftware5Cost" value="#{computerController.selected.additionalSoftware5Cost}" title="AdditionalSoftware5Cost" />
-                                    <p:outputLabel value="AdditionalSoftware6Description:" for="additionalSoftware6Description" />
-                                    <p:inputText id="additionalSoftware6Description" value="#{computerController.selected.additionalSoftware6Description}" title="AdditionalSoftware6Description" />
-                                    <p:outputLabel value="AdditionalSoftware6DateOfPurchase:" for="additionalSoftware6DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware6DateOfPurchase" value="#{computerController.selected.additionalSoftware6DateOfPurchase}" title="AdditionalSoftware6DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware6Cost:" for="additionalSoftware6Cost" />
-                                    <p:inputText id="additionalSoftware6Cost" value="#{computerController.selected.additionalSoftware6Cost}" title="AdditionalSoftware6Cost" />
-                                    <p:outputLabel value="AdditionalSoftware7Description:" for="additionalSoftware7Description" />
-                                    <p:inputText id="additionalSoftware7Description" value="#{computerController.selected.additionalSoftware7Description}" title="AdditionalSoftware7Description" />
-                                    <p:outputLabel value="AdditionalSoftware7DateOfPurchase:" for="additionalSoftware7DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware7DateOfPurchase" value="#{computerController.selected.additionalSoftware7DateOfPurchase}" title="AdditionalSoftware7DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware7Cost:" for="additionalSoftware7Cost" />
-                                    <p:inputText id="additionalSoftware7Cost" value="#{computerController.selected.additionalSoftware7Cost}" title="AdditionalSoftware7Cost" />
-                                    <p:outputLabel value="AdditionalSoftware8Description:" for="additionalSoftware8Description" />
-                                    <p:inputText id="additionalSoftware8Description" value="#{computerController.selected.additionalSoftware8Description}" title="AdditionalSoftware8Description" />
-                                    <p:outputLabel value="AdditionalSoftware8DateOfPurchase:" for="additionalSoftware8DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware8DateOfPurchase" value="#{computerController.selected.additionalSoftware8DateOfPurchase}" title="AdditionalSoftware8DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware8Cost:" for="additionalSoftware8Cost" />
-                                    <p:inputText id="additionalSoftware8Cost" value="#{computerController.selected.additionalSoftware8Cost}" title="AdditionalSoftware8Cost" />
-                                    <p:outputLabel value="AdditionalSoftware9Description:" for="additionalSoftware9Description" />
-                                    <p:inputText id="additionalSoftware9Description" value="#{computerController.selected.additionalSoftware9Description}" title="AdditionalSoftware9Description" />
-                                    <p:outputLabel value="AdditionalSoftware9DateOfPurchase:" for="additionalSoftware9DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware9DateOfPurchase" value="#{computerController.selected.additionalSoftware9DateOfPurchase}" title="AdditionalSoftware9DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware9Cost:" for="additionalSoftware9Cost" />
-                                    <p:inputText id="additionalSoftware9Cost" value="#{computerController.selected.additionalSoftware9Cost}" title="AdditionalSoftware9Cost" />
-                                    <p:outputLabel value="AdditionalSoftware10Description:" for="additionalSoftware10Description" />
-                                    <p:inputText id="additionalSoftware10Description" value="#{computerController.selected.additionalSoftware10Description}" title="AdditionalSoftware10Description" />
-                                    <p:outputLabel value="AdditionalSoftware10DateOfPurchase:" for="additionalSoftware10DateOfPurchase" />
-                                    <p:inputText id="additionalSoftware10DateOfPurchase" value="#{computerController.selected.additionalSoftware10DateOfPurchase}" title="AdditionalSoftware10DateOfPurchase" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="AdditionalSoftware10Cost:" for="additionalSoftware10Cost" />
-                                    <p:inputText id="additionalSoftware10Cost" value="#{computerController.selected.additionalSoftware10Cost}" title="AdditionalSoftware10Cost" />
-                                    <p:outputLabel value="TotalCost:" for="totalCost" />
-                                    <p:inputText id="totalCost" value="#{computerController.selected.totalCost}" title="TotalCost" />
-                                    <p:outputLabel value="MaintainedBy:" for="maintainedBy" />
-                                    <p:selectOneMenu id="maintainedBy" value="#{computerController.selected.maintainedBy}" >
-                                        <!-- TODO: update below reference to list of available items-->
-                                        <f:selectItems value="#{fixme}"/>
-                                    </p:selectOneMenu>
-                                    <p:outputLabel value="ImportantInformation:" for="importantInformation" />
-                                    <p:inputTextarea rows="4" cols="30" id="importantInformation" value="#{computerController.selected.importantInformation}" title="ImportantInformation" />
-                                    <p:outputLabel value="WarrantyValidTill:" for="warrantyValidTill" />
-                                    <p:inputText id="warrantyValidTill" value="#{computerController.selected.warrantyValidTill}" title="WarrantyValidTill" >
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </p:inputText>
-                                    <p:outputLabel value="Warranty:" for="warranty" />
-                                    <p:inputTextarea rows="4" cols="30" id="warranty" value="#{computerController.selected.warranty}" title="Warranty" />
-
-                                </h:panelGroup>
+                                <!--                                <h:panelGroup rendered="false" >
+                                
+                                
+                                
+                                
+                                
+                                
+                                                                   
+                                                                    <p:outputLabel value="Keyboard:" for="keyboard" />
+                                                                    <p:inputText id="keyboard" value="#{computerController.selected.keyboard}" title="Keyboard" />
+                                                                    <p:outputLabel value="KeyboardSerial:" for="keyboardSerial" />
+                                                                    <p:inputText id="keyboardSerial" value="#{computerController.selected.keyboardSerial}" title="KeyboardSerial" />
+                                                                    <p:outputLabel value="KeyboardCost:" for="keyboardCost" />
+                                                                    <p:inputText id="keyboardCost" value="#{computerController.selected.keyboardCost}" title="KeyboardCost" />
+                                                                    <p:outputLabel value="Mouse:" for="mouse" />
+                                                                    <p:inputText id="mouse" value="#{computerController.selected.mouse}" title="Mouse" />
+                                                                    <p:outputLabel value="MouseSerial:" for="mouseSerial" />
+                                                                    <p:inputText id="mouseSerial" value="#{computerController.selected.mouseSerial}" title="MouseSerial" />
+                                                                    <p:outputLabel value="MouseCost:" for="mouseCost" />
+                                                                    <p:inputText id="mouseCost" value="#{computerController.selected.mouseCost}" title="MouseCost" />
+                                                                    <p:outputLabel value="InternalMicrophone:" for="internalMicrophone" />
+                                                                    <p:inputText id="internalMicrophone" value="#{computerController.selected.internalMicrophone}" title="InternalMicrophone" />
+                                                                    <p:outputLabel value="ExternalMicrophone:" for="externalMicrophone" />
+                                                                    <p:inputText id="externalMicrophone" value="#{computerController.selected.externalMicrophone}" title="ExternalMicrophone" />
+                                                                    <p:outputLabel value="MicrophoneSerial:" for="microphoneSerial" />
+                                                                    <p:inputText id="microphoneSerial" value="#{computerController.selected.microphoneSerial}" title="MicrophoneSerial" />
+                                                                    <p:outputLabel value="InternalMicrophoneCost:" for="internalMicrophoneCost" />
+                                                                    <p:inputText id="internalMicrophoneCost" value="#{computerController.selected.internalMicrophoneCost}" title="InternalMicrophoneCost" />
+                                                                    <p:outputLabel value="ExternalMicrophoneCost:" for="externalMicrophoneCost" />
+                                                                    <p:inputText id="externalMicrophoneCost" value="#{computerController.selected.externalMicrophoneCost}" title="ExternalMicrophoneCost" />
+                                                                    <p:outputLabel value="Scanner:" for="scanner" />
+                                                                    <p:inputText id="scanner" value="#{computerController.selected.scanner}" title="Scanner" />
+                                                                    <p:outputLabel value="ScannerMake:" for="scannerMake" />
+                                                                    <p:inputText id="scannerMake" value="#{computerController.selected.scannerMake}" title="ScannerMake" />
+                                                                    <p:outputLabel value="ScannerModel:" for="scannerModel" />
+                                                                    <p:inputText id="scannerModel" value="#{computerController.selected.scannerModel}" title="ScannerModel" />
+                                                                    <p:outputLabel value="ScannerSerial:" for="scannerSerial" />
+                                                                    <p:inputText id="scannerSerial" value="#{computerController.selected.scannerSerial}" title="ScannerSerial" />
+                                                                    <p:outputLabel value="ScannerDateOfPurchase:" for="scannerDateOfPurchase" />
+                                                                    <p:inputText id="scannerDateOfPurchase" value="#{computerController.selected.scannerDateOfPurchase}" title="ScannerDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="MonitorMake:" for="monitorMake" />
+                                                                    <p:inputText id="monitorMake" value="#{computerController.selected.monitorMake}" title="MonitorMake" />
+                                                                    <p:outputLabel value="MonitorModel:" for="monitorModel" />
+                                                                    <p:inputText id="monitorModel" value="#{computerController.selected.monitorModel}" title="MonitorModel" />
+                                                                    <p:outputLabel value="MonitorSerial:" for="monitorSerial" />
+                                                                    <p:inputText id="monitorSerial" value="#{computerController.selected.monitorSerial}" title="MonitorSerial" />
+                                                                    <p:outputLabel value="MonitorDateOfPurchase:" for="monitorDateOfPurchase" />
+                                                                    <p:inputText id="monitorDateOfPurchase" value="#{computerController.selected.monitorDateOfPurchase}" title="MonitorDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="MonitorCost:" for="monitorCost" />
+                                                                    <p:inputText id="monitorCost" value="#{computerController.selected.monitorCost}" title="MonitorCost" />
+                                                                    <p:outputLabel value="PrinterMake:" for="printerMake" />
+                                                                    <p:inputText id="printerMake" value="#{computerController.selected.printerMake}" title="PrinterMake" />
+                                                                    <p:outputLabel value="PrinterModel:" for="printerModel" />
+                                                                    <p:inputText id="printerModel" value="#{computerController.selected.printerModel}" title="PrinterModel" />
+                                                                    <p:outputLabel value="PrinterSerial:" for="printerSerial" />
+                                                                    <p:inputText id="printerSerial" value="#{computerController.selected.printerSerial}" title="PrinterSerial" />
+                                                                    <p:outputLabel value="PrinterDateOfPurchase:" for="printerDateOfPurchase" />
+                                                                    <p:inputText id="printerDateOfPurchase" value="#{computerController.selected.printerDateOfPurchase}" title="PrinterDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="PrinterCost:" for="printerCost" />
+                                                                    <p:inputText id="printerCost" value="#{computerController.selected.printerCost}" title="PrinterCost" />
+                                                                    <p:outputLabel value="SpeakerMake:" for="speakerMake" />
+                                                                    <p:inputText id="speakerMake" value="#{computerController.selected.speakerMake}" title="SpeakerMake" />
+                                                                    <p:outputLabel value="SpeakerModel:" for="speakerModel" />
+                                                                    <p:inputText id="speakerModel" value="#{computerController.selected.speakerModel}" title="SpeakerModel" />
+                                                                    <p:outputLabel value="SpeakerSerial:" for="speakerSerial" />
+                                                                    <p:inputText id="speakerSerial" value="#{computerController.selected.speakerSerial}" title="SpeakerSerial" />
+                                                                    <p:outputLabel value="SpeakerDateOfPurchase:" for="speakerDateOfPurchase" />
+                                                                    <p:inputText id="speakerDateOfPurchase" value="#{computerController.selected.speakerDateOfPurchase}" title="SpeakerDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="SpeakerCost:" for="speakerCost" />
+                                                                    <p:inputText id="speakerCost" value="#{computerController.selected.speakerCost}" title="SpeakerCost" />
+                                                                    <p:outputLabel value="UpsMake:" for="upsMake" />
+                                                                    <p:inputText id="upsMake" value="#{computerController.selected.upsMake}" title="UpsMake" />
+                                                                    <p:outputLabel value="UpsModel:" for="upsModel" />
+                                                                    <p:inputText id="upsModel" value="#{computerController.selected.upsModel}" title="UpsModel" />
+                                                                    <p:outputLabel value="UpsSerial:" for="upsSerial" />
+                                                                    <p:inputText id="upsSerial" value="#{computerController.selected.upsSerial}" title="UpsSerial" />
+                                                                    <p:outputLabel value="UpsDateOfPurchase:" for="upsDateOfPurchase" />
+                                                                    <p:inputText id="upsDateOfPurchase" value="#{computerController.selected.upsDateOfPurchase}" title="UpsDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="UpsCost:" for="upsCost" />
+                                                                    <p:inputText id="upsCost" value="#{computerController.selected.upsCost}" title="UpsCost" />
+                                                                    <p:outputLabel value="StabilizerMake:" for="stabilizerMake" />
+                                                                    <p:inputText id="stabilizerMake" value="#{computerController.selected.stabilizerMake}" title="StabilizerMake" />
+                                                                    <p:outputLabel value="StabilizerModel:" for="stabilizerModel" />
+                                                                    <p:inputText id="stabilizerModel" value="#{computerController.selected.stabilizerModel}" title="StabilizerModel" />
+                                                                    <p:outputLabel value="StabilizerSerial:" for="stabilizerSerial" />
+                                                                    <p:inputText id="stabilizerSerial" value="#{computerController.selected.stabilizerSerial}" title="StabilizerSerial" />
+                                                                    <p:outputLabel value="StabilizerDateOfPurchase:" for="stabilizerDateOfPurchase" />
+                                                                    <p:inputText id="stabilizerDateOfPurchase" value="#{computerController.selected.stabilizerDateOfPurchase}" title="StabilizerDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="StabilizerCost:" for="stabilizerCost" />
+                                                                    <p:inputText id="stabilizerCost" value="#{computerController.selected.stabilizerCost}" title="StabilizerCost" />
+                                                                    <p:outputLabel value="CablesMake:" for="cablesMake" />
+                                                                    <p:inputText id="cablesMake" value="#{computerController.selected.cablesMake}" title="CablesMake" />
+                                                                    <p:outputLabel value="CablesDescription:" for="cablesDescription" />
+                                                                    <p:inputText id="cablesDescription" value="#{computerController.selected.cablesDescription}" title="CablesDescription" />
+                                                                    <p:outputLabel value="CablesModel:" for="cablesModel" />
+                                                                    <p:inputText id="cablesModel" value="#{computerController.selected.cablesModel}" title="CablesModel" />
+                                                                    <p:outputLabel value="CablesSerial:" for="cablesSerial" />
+                                                                    <p:inputText id="cablesSerial" value="#{computerController.selected.cablesSerial}" title="CablesSerial" />
+                                                                    <p:outputLabel value="CablesDateOfPurchase:" for="cablesDateOfPurchase" />
+                                                                    <p:inputText id="cablesDateOfPurchase" value="#{computerController.selected.cablesDateOfPurchase}" title="CablesDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="CablesCost:" for="cablesCost" />
+                                                                    <p:inputText id="cablesCost" value="#{computerController.selected.cablesCost}" title="CablesCost" />
+                                                                    <p:outputLabel value="OthersMake:" for="othersMake" />
+                                                                    <p:inputText id="othersMake" value="#{computerController.selected.othersMake}" title="OthersMake" />
+                                                                    <p:outputLabel value="OthersDescription:" for="othersDescription" />
+                                                                    <p:inputText id="othersDescription" value="#{computerController.selected.othersDescription}" title="OthersDescription" />
+                                                                    <p:outputLabel value="OthersModel:" for="othersModel" />
+                                                                    <p:inputText id="othersModel" value="#{computerController.selected.othersModel}" title="OthersModel" />
+                                                                    <p:outputLabel value="OthersSerial:" for="othersSerial" />
+                                                                    <p:inputText id="othersSerial" value="#{computerController.selected.othersSerial}" title="OthersSerial" />
+                                                                    <p:outputLabel value="OthersDateOfPurchase:" for="othersDateOfPurchase" />
+                                                                    <p:inputText id="othersDateOfPurchase" value="#{computerController.selected.othersDateOfPurchase}" title="OthersDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="OthersCost:" for="othersCost" />
+                                                                    <p:inputText id="othersCost" value="#{computerController.selected.othersCost}" title="OthersCost" />
+                                                                    <p:outputLabel value="OperatingSystem:" for="operatingSystem" />
+                                                                    <p:inputText id="operatingSystem" value="#{computerController.selected.operatingSystem}" title="OperatingSystem" />
+                                                                    <p:outputLabel value="OperatingSystemCost:" for="operatingSystemCost" />
+                                                                    <p:inputText id="operatingSystemCost" value="#{computerController.selected.operatingSystemCost}" title="OperatingSystemCost" />
+                                                                    <p:outputLabel value="InternetEmail:" for="internetEmail" />
+                                                                    <p:inputText id="internetEmail" value="#{computerController.selected.internetEmail}" title="InternetEmail" />
+                                                                    <p:outputLabel value="InternetEmailDateOfPurchase:" for="internetEmailDateOfPurchase" />
+                                                                    <p:inputText id="internetEmailDateOfPurchase" value="#{computerController.selected.internetEmailDateOfPurchase}" title="InternetEmailDateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="InternetEmailCost:" for="internetEmailCost" />
+                                                                    <p:inputText id="internetEmailCost" value="#{computerController.selected.internetEmailCost}" title="InternetEmailCost" />
+                                                                    <p:outputLabel value="AdditionalSoftware1Description:" for="additionalSoftware1Description" />
+                                                                    <p:inputText id="additionalSoftware1Description" value="#{computerController.selected.additionalSoftware1Description}" title="AdditionalSoftware1Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware1DateOfPurchase:" for="additionalSoftware1DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware1DateOfPurchase" value="#{computerController.selected.additionalSoftware1DateOfPurchase}" title="AdditionalSoftware1DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware1Cost:" for="additionalSoftware1Cost" />
+                                                                    <p:inputText id="additionalSoftware1Cost" value="#{computerController.selected.additionalSoftware1Cost}" title="AdditionalSoftware1Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware2Description:" for="additionalSoftware2Description" />
+                                                                    <p:inputText id="additionalSoftware2Description" value="#{computerController.selected.additionalSoftware2Description}" title="AdditionalSoftware2Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware2DateOfPurchase:" for="additionalSoftware2DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware2DateOfPurchase" value="#{computerController.selected.additionalSoftware2DateOfPurchase}" title="AdditionalSoftware2DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware2Cost:" for="additionalSoftware2Cost" />
+                                                                    <p:inputText id="additionalSoftware2Cost" value="#{computerController.selected.additionalSoftware2Cost}" title="AdditionalSoftware2Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware3Description:" for="additionalSoftware3Description" />
+                                                                    <p:inputText id="additionalSoftware3Description" value="#{computerController.selected.additionalSoftware3Description}" title="AdditionalSoftware3Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware3DateOfPurchase:" for="additionalSoftware3DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware3DateOfPurchase" value="#{computerController.selected.additionalSoftware3DateOfPurchase}" title="AdditionalSoftware3DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware3Cost:" for="additionalSoftware3Cost" />
+                                                                    <p:inputText id="additionalSoftware3Cost" value="#{computerController.selected.additionalSoftware3Cost}" title="AdditionalSoftware3Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware4Description:" for="additionalSoftware4Description" />
+                                                                    <p:inputText id="additionalSoftware4Description" value="#{computerController.selected.additionalSoftware4Description}" title="AdditionalSoftware4Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware4DateOfPurchase:" for="additionalSoftware4DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware4DateOfPurchase" value="#{computerController.selected.additionalSoftware4DateOfPurchase}" title="AdditionalSoftware4DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware4Cost:" for="additionalSoftware4Cost" />
+                                                                    <p:inputText id="additionalSoftware4Cost" value="#{computerController.selected.additionalSoftware4Cost}" title="AdditionalSoftware4Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware5Description:" for="additionalSoftware5Description" />
+                                                                    <p:inputText id="additionalSoftware5Description" value="#{computerController.selected.additionalSoftware5Description}" title="AdditionalSoftware5Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware5DateOfPurchase:" for="additionalSoftware5DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware5DateOfPurchase" value="#{computerController.selected.additionalSoftware5DateOfPurchase}" title="AdditionalSoftware5DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware5Cost:" for="additionalSoftware5Cost" />
+                                                                    <p:inputText id="additionalSoftware5Cost" value="#{computerController.selected.additionalSoftware5Cost}" title="AdditionalSoftware5Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware6Description:" for="additionalSoftware6Description" />
+                                                                    <p:inputText id="additionalSoftware6Description" value="#{computerController.selected.additionalSoftware6Description}" title="AdditionalSoftware6Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware6DateOfPurchase:" for="additionalSoftware6DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware6DateOfPurchase" value="#{computerController.selected.additionalSoftware6DateOfPurchase}" title="AdditionalSoftware6DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware6Cost:" for="additionalSoftware6Cost" />
+                                                                    <p:inputText id="additionalSoftware6Cost" value="#{computerController.selected.additionalSoftware6Cost}" title="AdditionalSoftware6Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware7Description:" for="additionalSoftware7Description" />
+                                                                    <p:inputText id="additionalSoftware7Description" value="#{computerController.selected.additionalSoftware7Description}" title="AdditionalSoftware7Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware7DateOfPurchase:" for="additionalSoftware7DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware7DateOfPurchase" value="#{computerController.selected.additionalSoftware7DateOfPurchase}" title="AdditionalSoftware7DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware7Cost:" for="additionalSoftware7Cost" />
+                                                                    <p:inputText id="additionalSoftware7Cost" value="#{computerController.selected.additionalSoftware7Cost}" title="AdditionalSoftware7Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware8Description:" for="additionalSoftware8Description" />
+                                                                    <p:inputText id="additionalSoftware8Description" value="#{computerController.selected.additionalSoftware8Description}" title="AdditionalSoftware8Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware8DateOfPurchase:" for="additionalSoftware8DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware8DateOfPurchase" value="#{computerController.selected.additionalSoftware8DateOfPurchase}" title="AdditionalSoftware8DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware8Cost:" for="additionalSoftware8Cost" />
+                                                                    <p:inputText id="additionalSoftware8Cost" value="#{computerController.selected.additionalSoftware8Cost}" title="AdditionalSoftware8Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware9Description:" for="additionalSoftware9Description" />
+                                                                    <p:inputText id="additionalSoftware9Description" value="#{computerController.selected.additionalSoftware9Description}" title="AdditionalSoftware9Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware9DateOfPurchase:" for="additionalSoftware9DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware9DateOfPurchase" value="#{computerController.selected.additionalSoftware9DateOfPurchase}" title="AdditionalSoftware9DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware9Cost:" for="additionalSoftware9Cost" />
+                                                                    <p:inputText id="additionalSoftware9Cost" value="#{computerController.selected.additionalSoftware9Cost}" title="AdditionalSoftware9Cost" />
+                                                                    <p:outputLabel value="AdditionalSoftware10Description:" for="additionalSoftware10Description" />
+                                                                    <p:inputText id="additionalSoftware10Description" value="#{computerController.selected.additionalSoftware10Description}" title="AdditionalSoftware10Description" />
+                                                                    <p:outputLabel value="AdditionalSoftware10DateOfPurchase:" for="additionalSoftware10DateOfPurchase" />
+                                                                    <p:inputText id="additionalSoftware10DateOfPurchase" value="#{computerController.selected.additionalSoftware10DateOfPurchase}" title="AdditionalSoftware10DateOfPurchase" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="AdditionalSoftware10Cost:" for="additionalSoftware10Cost" />
+                                                                    <p:inputText id="additionalSoftware10Cost" value="#{computerController.selected.additionalSoftware10Cost}" title="AdditionalSoftware10Cost" />
+                                                                    <p:outputLabel value="TotalCost:" for="totalCost" />
+                                                                    <p:inputText id="totalCost" value="#{computerController.selected.totalCost}" title="TotalCost" />
+                                                                    <p:outputLabel value="MaintainedBy:" for="maintainedBy" />
+                                                                    <p:selectOneMenu id="maintainedBy" value="#{computerController.selected.maintainedBy}" >
+                                                                         TODO: update below reference to list of available items
+                                                                        <f:selectItems value="#{fixme}"/>
+                                                                    </p:selectOneMenu>
+                                                                    <p:outputLabel value="ImportantInformation:" for="importantInformation" />
+                                                                    <p:inputTextarea rows="4" cols="30" id="importantInformation" value="#{computerController.selected.importantInformation}" title="ImportantInformation" />
+                                                                    <p:outputLabel value="WarrantyValidTill:" for="warrantyValidTill" />
+                                                                    <p:inputText id="warrantyValidTill" value="#{computerController.selected.warrantyValidTill}" title="WarrantyValidTill" >
+                                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                    </p:inputText>
+                                                                    <p:outputLabel value="Warranty:" for="warranty" />
+                                                                    <p:inputTextarea rows="4" cols="30" id="warranty" value="#{computerController.selected.warranty}" title="Warranty" />
+                                
+                                                                </h:panelGroup>-->
 
                             </p:panelGrid>
 
