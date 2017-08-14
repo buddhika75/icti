@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">ICT Inventory</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" life="3000" autoUpdate="true" />
+
+        <p:layout fullPage="true" class="container-fluid"  >
+            <p:layoutUnit position="north"  >
+                <h:form id="menuForm">
+                    <p:menubar >
+                        <p:menuitem value="ICT Inventory System || " outcome="/index" />
+                        <p:submenu label="Inventory" rendered="#{webUserController.logged}">
+                            <p:menuitem ajax="false" value="Add Computer Details" action="#{computerController.toAddComputer()}" />
+                            <p:menuitem ajax="false" value="Search Computers" action="#{notificationController.toAnalyzeGnByMoh}" />
+                            <p:menuitem ajax="false" value="Reports" action="#{notificationController.toListNotificationsByMoh}" />
+                        </p:submenu>
+                        <p:submenu label="User" rendered="#{webUserController.logged}">
+                            <p:menuitem ajax="false" value="Edit my details" action="#{webUserController.toEditMyDetails()}" />
+                            <p:menuitem ajax="false" value="Change my password" action="#{webUserController.toEditMyPassword()}" />
+                        </p:submenu>
+
+                        <p:submenu label="Administration"  rendered="#{webUserController.admin or webUserController.developmentStage}">
+                            <p:menuitem  ajax="false" value="Manage Institutions" action="/institution/index"   />
+                            <p:menuitem  ajax="false" value="Manage Users" action="/webUser/add_webuser_index" />
+                            <p:menuitem  ajax="false" action="/item/List" value="Manage Items"   />
+                            <p:menuitem  ajax="false" action="/computer/List" value="Manage Computers"   />
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" >
+                <h:form >
+                    <h:panelGroup  rendered="#{webUserController.logged}" >
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-6 ui-lg-4"><p:outputLabel value="&copy; Health Information Unit, Department of Health Services, Southern Province" ></p:outputLabel></div>
+                            <div class="ui-g-12 ui-md-6 ui-lg-4"><p:outputLabel value="Logged User : #{webUserController.loggedUser.name}" ></p:outputLabel></div>
+                            <div class="ui-g-12 ui-md-6 ui-lg-3"><p:commandLink ajax="false" value="Logout" action="#{webUserController.logout()}" ></p:commandLink></div>
+                        </div>
+                    </h:panelGroup>
+                    <h:panelGroup  rendered="#{!webUserController.logged}" >
+                        <p:outputLabel value="&copy; Health Information Unit, Department of Health Services, Southern Province" ></p:outputLabel>
+                    </h:panelGroup>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" >
+
+
+                <p:panel header="Login" rendered="#{!webUserController.logged}" style="z-index: 10; width: 400px; height: 150px;" >
+                    <h:form >
+                        <h:panelGrid columns="3" >
+                            <p:outputLabel value="Username" style="z-index: 10;" ></p:outputLabel>
+                            <p:spacer height="1" width="30" ></p:spacer>
+                            <p:inputText value="#{webUserController.userName}" style="z-index: 100;" ></p:inputText>
+                            <p:outputLabel value="Password" ></p:outputLabel>
+                            <p:spacer height="1" width="30" ></p:spacer>
+                            <p:inputText value="#{webUserController.password}" ></p:inputText>
+                        </h:panelGrid>
+                        <p:commandButton style="z-index: 10; float: right; margin-right:  80px; " ajax="false" value="Login" action="#{webUserController.login()}" ></p:commandButton>                            
+                    </h:form>
+                </p:panel>
+
+                <p:graphicImage library="images" name="main1.jpg" rendered="#{!webUserController.logged}" styleClass="centrecontent" width="75%" style="z-index: 0;" ></p:graphicImage>
+
+
+                <h:panelGrid rendered="#{webUserController.logged}" >
+                    <ui:insert name="body">
+                        Please Login to continue
+                    </ui:insert>
+                </h:panelGrid>
+
+
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</html>

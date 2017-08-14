@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundleItem.ListComputerTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ComputerListForm">
+                <p:panel header="#{bundleItem.ListComputerTitle}">
+                    <p:dataTable id="datalist" value="#{computerController.items}" var="item"
+                                 selectionMode="single" selection="#{computerController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_inventoryNo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.inventoryNo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_serial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_dateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_department}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.department}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_purchasedOrTransferredFrom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.purchasedOrTransferredFrom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_fromInstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromInstitution}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_make}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.make}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_model}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.model}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_type}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.type}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_processor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.processor}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_speed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speed}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_ram}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ram}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_ramCapasity}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ramCapasity}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_hddType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hddType}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_hddCapasity}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hddCapasity}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_fdd}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.fdd}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cdr}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.cdr}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_soundCard}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.soundCard}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_tvCard}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.tvCard}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_networkCard}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.networkCard}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_externalModerm}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.externalModerm}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_internalModerm}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.internalModerm}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other1}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other1}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent1}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other2}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other2}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent2}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other3}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other3}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent3}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other4}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other4}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent4}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent4}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other5}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other5}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent5}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent5}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other6}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other6}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent6}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent6}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_other7}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.other7}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_otherComopnent7}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherComopnent7}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_subTotalCost2_1To2_17}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subTotalCost2_1To2_17}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_keyboard}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.keyboard}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_keyboardSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.keyboardSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_keyboardCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.keyboardCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_mouse}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.mouse}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_mouseSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mouseSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_mouseCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mouseCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_internalMicrophone}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.internalMicrophone}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_externalMicrophone}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.externalMicrophone}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_microphoneSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.microphoneSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_internalMicrophoneCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.internalMicrophoneCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_externalMicrophoneCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.externalMicrophoneCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_scanner}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.scanner}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_scannerMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.scannerMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_scannerModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.scannerModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_scannerSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.scannerSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_scannerDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.scannerDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_monitorMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monitorMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_monitorModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monitorModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_monitorSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monitorSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_monitorDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monitorDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_monitorCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monitorCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_printerMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.printerMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_printerModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.printerModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_printerSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.printerSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_printerDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.printerDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_printerCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.printerCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_speakerMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speakerMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_speakerModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speakerModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_speakerSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speakerSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_speakerDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speakerDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_speakerCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speakerCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_upsMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.upsMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_upsModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.upsModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_upsSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.upsSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_upsDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.upsDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_upsCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.upsCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_stabilizerMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stabilizerMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_stabilizerModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stabilizerModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_stabilizerSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stabilizerSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_stabilizerDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stabilizerDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_stabilizerCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stabilizerCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cablesMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cablesMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cablesDescription}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cablesDescription}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cablesModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cablesModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cablesSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cablesSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cablesDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cablesDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_cablesCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cablesCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_othersMake}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.othersMake}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_othersDescription}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.othersDescription}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_othersModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.othersModel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_othersSerial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.othersSerial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_othersDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.othersDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_othersCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.othersCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_operatingSystem}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.operatingSystem}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_operatingSystemCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.operatingSystemCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_internetEmail}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.internetEmail}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_internetEmailDateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.internetEmailDateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_internetEmailCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.internetEmailCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware1Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware1Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware1DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware1DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware1Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware1Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware2Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware2Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware2DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware2DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware2Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware2Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware3Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware3Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware3DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware3DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware3Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware3Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware4Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware4Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware4DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware4DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware4Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware4Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware5Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware5Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware5DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware5DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware5Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware5Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware6Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware6Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware6DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware6DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware6Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware6Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware7Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware7Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware7DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware7DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware7Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware7Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware8Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware8Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware8DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware8DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware8Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware8Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware9Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware9Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware9DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware9DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware9Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware9Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware10Description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware10Description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware10DateOfPurchase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware10DateOfPurchase}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_additionalSoftware10Cost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalSoftware10Cost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_totalCost}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.totalCost}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_maintainedBy}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.maintainedBy}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_importantInformation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importantInformation}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_warrantyValidTill}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.warrantyValidTill}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleItem.ListComputerTitle_warranty}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.warranty}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundleItem.Create}" actionListener="#{computerController.prepareCreate}" update=":ComputerCreateForm" oncomplete="PF('ComputerCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundleItem.View}" update=":ComputerViewForm" oncomplete="PF('ComputerViewDialog').show()" disabled="#{empty computerController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundleItem.Edit}" update=":ComputerEditForm" oncomplete="PF('ComputerEditDialog').show()" disabled="#{empty computerController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundleItem.Delete}" actionListener="#{computerController.destroy}" update=":growl,datalist" disabled="#{empty computerController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

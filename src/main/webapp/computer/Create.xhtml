@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ComputerCreateDlg" widgetVar="ComputerCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleItem.CreateComputerTitle}">
+            <h:form id="ComputerCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{computerController.selected != null}">
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{computerController.selected.id}" title="#{bundleItem.CreateComputerTitle_id}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_inventoryNo}" for="inventoryNo" />
+                        <p:inputText id="inventoryNo" value="#{computerController.selected.inventoryNo}" title="#{bundleItem.CreateComputerTitle_inventoryNo}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_serial}" for="serial" />
+                        <p:inputText id="serial" value="#{computerController.selected.serial}" title="#{bundleItem.CreateComputerTitle_serial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_dateOfPurchase}" for="dateOfPurchase" />
+                        <p:calendar id="dateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.dateOfPurchase}" title="#{bundleItem.EditComputerTitle_dateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_department}" for="department" />
+                        <p:selectOneMenu id="department" value="#{computerController.selected.department}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="departmentItem"
+                                           itemValue="#{departmentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_purchasedOrTransferredFrom}" for="purchasedOrTransferredFrom" />
+                        <p:inputText id="purchasedOrTransferredFrom" value="#{computerController.selected.purchasedOrTransferredFrom}" title="#{bundleItem.CreateComputerTitle_purchasedOrTransferredFrom}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_fromInstitution}" for="fromInstitution" />
+                        <p:selectOneMenu id="fromInstitution" value="#{computerController.selected.fromInstitution}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="fromInstitutionItem"
+                                           itemValue="#{fromInstitutionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_make}" for="make" />
+                        <p:inputText id="make" value="#{computerController.selected.make}" title="#{bundleItem.CreateComputerTitle_make}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_model}" for="model" />
+                        <p:inputText id="model" value="#{computerController.selected.model}" title="#{bundleItem.CreateComputerTitle_model}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{computerController.selected.type}" title="#{bundleItem.CreateComputerTitle_type}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_processor}" for="processor" />
+                        <p:inputText id="processor" value="#{computerController.selected.processor}" title="#{bundleItem.CreateComputerTitle_processor}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_speed}" for="speed" />
+                        <p:inputText id="speed" value="#{computerController.selected.speed}" title="#{bundleItem.CreateComputerTitle_speed}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_ram}" for="ram" />
+                        <p:inputText id="ram" value="#{computerController.selected.ram}" title="#{bundleItem.CreateComputerTitle_ram}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_ramCapasity}" for="ramCapasity" />
+                        <p:inputText id="ramCapasity" value="#{computerController.selected.ramCapasity}" title="#{bundleItem.CreateComputerTitle_ramCapasity}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_hddType}" for="hddType" />
+                        <p:inputText id="hddType" value="#{computerController.selected.hddType}" title="#{bundleItem.CreateComputerTitle_hddType}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_hddCapasity}" for="hddCapasity" />
+                        <p:inputText id="hddCapasity" value="#{computerController.selected.hddCapasity}" title="#{bundleItem.CreateComputerTitle_hddCapasity}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_fdd}" for="fdd" />
+                        <p:selectBooleanCheckbox id="fdd" value="#{computerController.selected.fdd}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cdr}" for="cdr" />
+                        <p:selectBooleanCheckbox id="cdr" value="#{computerController.selected.cdr}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_soundCard}" for="soundCard" />
+                        <p:selectBooleanCheckbox id="soundCard" value="#{computerController.selected.soundCard}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_tvCard}" for="tvCard" />
+                        <p:selectBooleanCheckbox id="tvCard" value="#{computerController.selected.tvCard}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_networkCard}" for="networkCard" />
+                        <p:selectBooleanCheckbox id="networkCard" value="#{computerController.selected.networkCard}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_externalModerm}" for="externalModerm" />
+                        <p:selectBooleanCheckbox id="externalModerm" value="#{computerController.selected.externalModerm}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_internalModerm}" for="internalModerm" />
+                        <p:selectBooleanCheckbox id="internalModerm" value="#{computerController.selected.internalModerm}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other1}" for="other1" />
+                        <p:selectBooleanCheckbox id="other1" value="#{computerController.selected.other1}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent1}" for="otherComopnent1" />
+                        <p:inputText id="otherComopnent1" value="#{computerController.selected.otherComopnent1}" title="#{bundleItem.CreateComputerTitle_otherComopnent1}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other2}" for="other2" />
+                        <p:selectBooleanCheckbox id="other2" value="#{computerController.selected.other2}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent2}" for="otherComopnent2" />
+                        <p:inputText id="otherComopnent2" value="#{computerController.selected.otherComopnent2}" title="#{bundleItem.CreateComputerTitle_otherComopnent2}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other3}" for="other3" />
+                        <p:selectBooleanCheckbox id="other3" value="#{computerController.selected.other3}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent3}" for="otherComopnent3" />
+                        <p:inputText id="otherComopnent3" value="#{computerController.selected.otherComopnent3}" title="#{bundleItem.CreateComputerTitle_otherComopnent3}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other4}" for="other4" />
+                        <p:selectBooleanCheckbox id="other4" value="#{computerController.selected.other4}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent4}" for="otherComopnent4" />
+                        <p:inputText id="otherComopnent4" value="#{computerController.selected.otherComopnent4}" title="#{bundleItem.CreateComputerTitle_otherComopnent4}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other5}" for="other5" />
+                        <p:selectBooleanCheckbox id="other5" value="#{computerController.selected.other5}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent5}" for="otherComopnent5" />
+                        <p:inputText id="otherComopnent5" value="#{computerController.selected.otherComopnent5}" title="#{bundleItem.CreateComputerTitle_otherComopnent5}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other6}" for="other6" />
+                        <p:selectBooleanCheckbox id="other6" value="#{computerController.selected.other6}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent6}" for="otherComopnent6" />
+                        <p:inputText id="otherComopnent6" value="#{computerController.selected.otherComopnent6}" title="#{bundleItem.CreateComputerTitle_otherComopnent6}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_other7}" for="other7" />
+                        <p:selectBooleanCheckbox id="other7" value="#{computerController.selected.other7}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_otherComopnent7}" for="otherComopnent7" />
+                        <p:inputText id="otherComopnent7" value="#{computerController.selected.otherComopnent7}" title="#{bundleItem.CreateComputerTitle_otherComopnent7}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_subTotalCost2_1To2_17}" for="subTotalCost2_1To2_17" />
+                        <p:inputText id="subTotalCost2_1To2_17" value="#{computerController.selected.subTotalCost2_1To2_17}" title="#{bundleItem.CreateComputerTitle_subTotalCost2_1To2_17}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_keyboard}" for="keyboard" />
+                        <p:selectBooleanCheckbox id="keyboard" value="#{computerController.selected.keyboard}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_keyboardSerial}" for="keyboardSerial" />
+                        <p:inputText id="keyboardSerial" value="#{computerController.selected.keyboardSerial}" title="#{bundleItem.CreateComputerTitle_keyboardSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_keyboardCost}" for="keyboardCost" />
+                        <p:inputText id="keyboardCost" value="#{computerController.selected.keyboardCost}" title="#{bundleItem.CreateComputerTitle_keyboardCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_mouse}" for="mouse" />
+                        <p:selectBooleanCheckbox id="mouse" value="#{computerController.selected.mouse}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_mouseSerial}" for="mouseSerial" />
+                        <p:inputText id="mouseSerial" value="#{computerController.selected.mouseSerial}" title="#{bundleItem.CreateComputerTitle_mouseSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_mouseCost}" for="mouseCost" />
+                        <p:inputText id="mouseCost" value="#{computerController.selected.mouseCost}" title="#{bundleItem.CreateComputerTitle_mouseCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_internalMicrophone}" for="internalMicrophone" />
+                        <p:selectBooleanCheckbox id="internalMicrophone" value="#{computerController.selected.internalMicrophone}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_externalMicrophone}" for="externalMicrophone" />
+                        <p:selectBooleanCheckbox id="externalMicrophone" value="#{computerController.selected.externalMicrophone}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_microphoneSerial}" for="microphoneSerial" />
+                        <p:inputText id="microphoneSerial" value="#{computerController.selected.microphoneSerial}" title="#{bundleItem.CreateComputerTitle_microphoneSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_internalMicrophoneCost}" for="internalMicrophoneCost" />
+                        <p:inputText id="internalMicrophoneCost" value="#{computerController.selected.internalMicrophoneCost}" title="#{bundleItem.CreateComputerTitle_internalMicrophoneCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_externalMicrophoneCost}" for="externalMicrophoneCost" />
+                        <p:inputText id="externalMicrophoneCost" value="#{computerController.selected.externalMicrophoneCost}" title="#{bundleItem.CreateComputerTitle_externalMicrophoneCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_scanner}" for="scanner" />
+                        <p:selectBooleanCheckbox id="scanner" value="#{computerController.selected.scanner}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_scannerMake}" for="scannerMake" />
+                        <p:inputText id="scannerMake" value="#{computerController.selected.scannerMake}" title="#{bundleItem.CreateComputerTitle_scannerMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_scannerModel}" for="scannerModel" />
+                        <p:inputText id="scannerModel" value="#{computerController.selected.scannerModel}" title="#{bundleItem.CreateComputerTitle_scannerModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_scannerSerial}" for="scannerSerial" />
+                        <p:inputText id="scannerSerial" value="#{computerController.selected.scannerSerial}" title="#{bundleItem.CreateComputerTitle_scannerSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_scannerDateOfPurchase}" for="scannerDateOfPurchase" />
+                        <p:calendar id="scannerDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.scannerDateOfPurchase}" title="#{bundleItem.EditComputerTitle_scannerDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_monitorMake}" for="monitorMake" />
+                        <p:inputText id="monitorMake" value="#{computerController.selected.monitorMake}" title="#{bundleItem.CreateComputerTitle_monitorMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_monitorModel}" for="monitorModel" />
+                        <p:inputText id="monitorModel" value="#{computerController.selected.monitorModel}" title="#{bundleItem.CreateComputerTitle_monitorModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_monitorSerial}" for="monitorSerial" />
+                        <p:inputText id="monitorSerial" value="#{computerController.selected.monitorSerial}" title="#{bundleItem.CreateComputerTitle_monitorSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_monitorDateOfPurchase}" for="monitorDateOfPurchase" />
+                        <p:calendar id="monitorDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.monitorDateOfPurchase}" title="#{bundleItem.EditComputerTitle_monitorDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_monitorCost}" for="monitorCost" />
+                        <p:inputText id="monitorCost" value="#{computerController.selected.monitorCost}" title="#{bundleItem.CreateComputerTitle_monitorCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_printerMake}" for="printerMake" />
+                        <p:inputText id="printerMake" value="#{computerController.selected.printerMake}" title="#{bundleItem.CreateComputerTitle_printerMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_printerModel}" for="printerModel" />
+                        <p:inputText id="printerModel" value="#{computerController.selected.printerModel}" title="#{bundleItem.CreateComputerTitle_printerModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_printerSerial}" for="printerSerial" />
+                        <p:inputText id="printerSerial" value="#{computerController.selected.printerSerial}" title="#{bundleItem.CreateComputerTitle_printerSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_printerDateOfPurchase}" for="printerDateOfPurchase" />
+                        <p:calendar id="printerDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.printerDateOfPurchase}" title="#{bundleItem.EditComputerTitle_printerDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_printerCost}" for="printerCost" />
+                        <p:inputText id="printerCost" value="#{computerController.selected.printerCost}" title="#{bundleItem.CreateComputerTitle_printerCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_speakerMake}" for="speakerMake" />
+                        <p:inputText id="speakerMake" value="#{computerController.selected.speakerMake}" title="#{bundleItem.CreateComputerTitle_speakerMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_speakerModel}" for="speakerModel" />
+                        <p:inputText id="speakerModel" value="#{computerController.selected.speakerModel}" title="#{bundleItem.CreateComputerTitle_speakerModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_speakerSerial}" for="speakerSerial" />
+                        <p:inputText id="speakerSerial" value="#{computerController.selected.speakerSerial}" title="#{bundleItem.CreateComputerTitle_speakerSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_speakerDateOfPurchase}" for="speakerDateOfPurchase" />
+                        <p:calendar id="speakerDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.speakerDateOfPurchase}" title="#{bundleItem.EditComputerTitle_speakerDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_speakerCost}" for="speakerCost" />
+                        <p:inputText id="speakerCost" value="#{computerController.selected.speakerCost}" title="#{bundleItem.CreateComputerTitle_speakerCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_upsMake}" for="upsMake" />
+                        <p:inputText id="upsMake" value="#{computerController.selected.upsMake}" title="#{bundleItem.CreateComputerTitle_upsMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_upsModel}" for="upsModel" />
+                        <p:inputText id="upsModel" value="#{computerController.selected.upsModel}" title="#{bundleItem.CreateComputerTitle_upsModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_upsSerial}" for="upsSerial" />
+                        <p:inputText id="upsSerial" value="#{computerController.selected.upsSerial}" title="#{bundleItem.CreateComputerTitle_upsSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_upsDateOfPurchase}" for="upsDateOfPurchase" />
+                        <p:calendar id="upsDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.upsDateOfPurchase}" title="#{bundleItem.EditComputerTitle_upsDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_upsCost}" for="upsCost" />
+                        <p:inputText id="upsCost" value="#{computerController.selected.upsCost}" title="#{bundleItem.CreateComputerTitle_upsCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_stabilizerMake}" for="stabilizerMake" />
+                        <p:inputText id="stabilizerMake" value="#{computerController.selected.stabilizerMake}" title="#{bundleItem.CreateComputerTitle_stabilizerMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_stabilizerModel}" for="stabilizerModel" />
+                        <p:inputText id="stabilizerModel" value="#{computerController.selected.stabilizerModel}" title="#{bundleItem.CreateComputerTitle_stabilizerModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_stabilizerSerial}" for="stabilizerSerial" />
+                        <p:inputText id="stabilizerSerial" value="#{computerController.selected.stabilizerSerial}" title="#{bundleItem.CreateComputerTitle_stabilizerSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_stabilizerDateOfPurchase}" for="stabilizerDateOfPurchase" />
+                        <p:calendar id="stabilizerDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.stabilizerDateOfPurchase}" title="#{bundleItem.EditComputerTitle_stabilizerDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_stabilizerCost}" for="stabilizerCost" />
+                        <p:inputText id="stabilizerCost" value="#{computerController.selected.stabilizerCost}" title="#{bundleItem.CreateComputerTitle_stabilizerCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cablesMake}" for="cablesMake" />
+                        <p:inputText id="cablesMake" value="#{computerController.selected.cablesMake}" title="#{bundleItem.CreateComputerTitle_cablesMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cablesDescription}" for="cablesDescription" />
+                        <p:inputText id="cablesDescription" value="#{computerController.selected.cablesDescription}" title="#{bundleItem.CreateComputerTitle_cablesDescription}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cablesModel}" for="cablesModel" />
+                        <p:inputText id="cablesModel" value="#{computerController.selected.cablesModel}" title="#{bundleItem.CreateComputerTitle_cablesModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cablesSerial}" for="cablesSerial" />
+                        <p:inputText id="cablesSerial" value="#{computerController.selected.cablesSerial}" title="#{bundleItem.CreateComputerTitle_cablesSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cablesDateOfPurchase}" for="cablesDateOfPurchase" />
+                        <p:calendar id="cablesDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.cablesDateOfPurchase}" title="#{bundleItem.EditComputerTitle_cablesDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_cablesCost}" for="cablesCost" />
+                        <p:inputText id="cablesCost" value="#{computerController.selected.cablesCost}" title="#{bundleItem.CreateComputerTitle_cablesCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_othersMake}" for="othersMake" />
+                        <p:inputText id="othersMake" value="#{computerController.selected.othersMake}" title="#{bundleItem.CreateComputerTitle_othersMake}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_othersDescription}" for="othersDescription" />
+                        <p:inputText id="othersDescription" value="#{computerController.selected.othersDescription}" title="#{bundleItem.CreateComputerTitle_othersDescription}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_othersModel}" for="othersModel" />
+                        <p:inputText id="othersModel" value="#{computerController.selected.othersModel}" title="#{bundleItem.CreateComputerTitle_othersModel}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_othersSerial}" for="othersSerial" />
+                        <p:inputText id="othersSerial" value="#{computerController.selected.othersSerial}" title="#{bundleItem.CreateComputerTitle_othersSerial}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_othersDateOfPurchase}" for="othersDateOfPurchase" />
+                        <p:calendar id="othersDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.othersDateOfPurchase}" title="#{bundleItem.EditComputerTitle_othersDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_othersCost}" for="othersCost" />
+                        <p:inputText id="othersCost" value="#{computerController.selected.othersCost}" title="#{bundleItem.CreateComputerTitle_othersCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_operatingSystem}" for="operatingSystem" />
+                        <p:inputText id="operatingSystem" value="#{computerController.selected.operatingSystem}" title="#{bundleItem.CreateComputerTitle_operatingSystem}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_operatingSystemCost}" for="operatingSystemCost" />
+                        <p:inputText id="operatingSystemCost" value="#{computerController.selected.operatingSystemCost}" title="#{bundleItem.CreateComputerTitle_operatingSystemCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_internetEmail}" for="internetEmail" />
+                        <p:selectBooleanCheckbox id="internetEmail" value="#{computerController.selected.internetEmail}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_internetEmailDateOfPurchase}" for="internetEmailDateOfPurchase" />
+                        <p:calendar id="internetEmailDateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.internetEmailDateOfPurchase}" title="#{bundleItem.EditComputerTitle_internetEmailDateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_internetEmailCost}" for="internetEmailCost" />
+                        <p:inputText id="internetEmailCost" value="#{computerController.selected.internetEmailCost}" title="#{bundleItem.CreateComputerTitle_internetEmailCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware1Description}" for="additionalSoftware1Description" />
+                        <p:inputText id="additionalSoftware1Description" value="#{computerController.selected.additionalSoftware1Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware1Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware1DateOfPurchase}" for="additionalSoftware1DateOfPurchase" />
+                        <p:calendar id="additionalSoftware1DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware1DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware1DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware1Cost}" for="additionalSoftware1Cost" />
+                        <p:inputText id="additionalSoftware1Cost" value="#{computerController.selected.additionalSoftware1Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware1Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware2Description}" for="additionalSoftware2Description" />
+                        <p:inputText id="additionalSoftware2Description" value="#{computerController.selected.additionalSoftware2Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware2Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware2DateOfPurchase}" for="additionalSoftware2DateOfPurchase" />
+                        <p:calendar id="additionalSoftware2DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware2DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware2DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware2Cost}" for="additionalSoftware2Cost" />
+                        <p:inputText id="additionalSoftware2Cost" value="#{computerController.selected.additionalSoftware2Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware2Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware3Description}" for="additionalSoftware3Description" />
+                        <p:inputText id="additionalSoftware3Description" value="#{computerController.selected.additionalSoftware3Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware3Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware3DateOfPurchase}" for="additionalSoftware3DateOfPurchase" />
+                        <p:calendar id="additionalSoftware3DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware3DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware3DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware3Cost}" for="additionalSoftware3Cost" />
+                        <p:inputText id="additionalSoftware3Cost" value="#{computerController.selected.additionalSoftware3Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware3Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware4Description}" for="additionalSoftware4Description" />
+                        <p:inputText id="additionalSoftware4Description" value="#{computerController.selected.additionalSoftware4Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware4Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware4DateOfPurchase}" for="additionalSoftware4DateOfPurchase" />
+                        <p:calendar id="additionalSoftware4DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware4DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware4DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware4Cost}" for="additionalSoftware4Cost" />
+                        <p:inputText id="additionalSoftware4Cost" value="#{computerController.selected.additionalSoftware4Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware4Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware5Description}" for="additionalSoftware5Description" />
+                        <p:inputText id="additionalSoftware5Description" value="#{computerController.selected.additionalSoftware5Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware5Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware5DateOfPurchase}" for="additionalSoftware5DateOfPurchase" />
+                        <p:calendar id="additionalSoftware5DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware5DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware5DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware5Cost}" for="additionalSoftware5Cost" />
+                        <p:inputText id="additionalSoftware5Cost" value="#{computerController.selected.additionalSoftware5Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware5Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware6Description}" for="additionalSoftware6Description" />
+                        <p:inputText id="additionalSoftware6Description" value="#{computerController.selected.additionalSoftware6Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware6Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware6DateOfPurchase}" for="additionalSoftware6DateOfPurchase" />
+                        <p:calendar id="additionalSoftware6DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware6DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware6DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware6Cost}" for="additionalSoftware6Cost" />
+                        <p:inputText id="additionalSoftware6Cost" value="#{computerController.selected.additionalSoftware6Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware6Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware7Description}" for="additionalSoftware7Description" />
+                        <p:inputText id="additionalSoftware7Description" value="#{computerController.selected.additionalSoftware7Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware7Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware7DateOfPurchase}" for="additionalSoftware7DateOfPurchase" />
+                        <p:calendar id="additionalSoftware7DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware7DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware7DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware7Cost}" for="additionalSoftware7Cost" />
+                        <p:inputText id="additionalSoftware7Cost" value="#{computerController.selected.additionalSoftware7Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware7Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware8Description}" for="additionalSoftware8Description" />
+                        <p:inputText id="additionalSoftware8Description" value="#{computerController.selected.additionalSoftware8Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware8Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware8DateOfPurchase}" for="additionalSoftware8DateOfPurchase" />
+                        <p:calendar id="additionalSoftware8DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware8DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware8DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware8Cost}" for="additionalSoftware8Cost" />
+                        <p:inputText id="additionalSoftware8Cost" value="#{computerController.selected.additionalSoftware8Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware8Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware9Description}" for="additionalSoftware9Description" />
+                        <p:inputText id="additionalSoftware9Description" value="#{computerController.selected.additionalSoftware9Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware9Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware9DateOfPurchase}" for="additionalSoftware9DateOfPurchase" />
+                        <p:calendar id="additionalSoftware9DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware9DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware9DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware9Cost}" for="additionalSoftware9Cost" />
+                        <p:inputText id="additionalSoftware9Cost" value="#{computerController.selected.additionalSoftware9Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware9Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware10Description}" for="additionalSoftware10Description" />
+                        <p:inputText id="additionalSoftware10Description" value="#{computerController.selected.additionalSoftware10Description}" title="#{bundleItem.CreateComputerTitle_additionalSoftware10Description}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware10DateOfPurchase}" for="additionalSoftware10DateOfPurchase" />
+                        <p:calendar id="additionalSoftware10DateOfPurchase" pattern="MM/dd/yyyy" value="#{computerController.selected.additionalSoftware10DateOfPurchase}" title="#{bundleItem.EditComputerTitle_additionalSoftware10DateOfPurchase}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_additionalSoftware10Cost}" for="additionalSoftware10Cost" />
+                        <p:inputText id="additionalSoftware10Cost" value="#{computerController.selected.additionalSoftware10Cost}" title="#{bundleItem.CreateComputerTitle_additionalSoftware10Cost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_totalCost}" for="totalCost" />
+                        <p:inputText id="totalCost" value="#{computerController.selected.totalCost}" title="#{bundleItem.CreateComputerTitle_totalCost}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_maintainedBy}" for="maintainedBy" />
+                        <p:selectOneMenu id="maintainedBy" value="#{computerController.selected.maintainedBy}" >
+                            <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"
+                                           var="maintainedByItem"
+                                           itemValue="#{maintainedByItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_importantInformation}" for="importantInformation" />
+                        <p:inputTextarea rows="4" cols="30" id="importantInformation" value="#{computerController.selected.importantInformation}" title="#{bundleItem.CreateComputerTitle_importantInformation}" />
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_warrantyValidTill}" for="warrantyValidTill" />
+                        <p:calendar id="warrantyValidTill" pattern="MM/dd/yyyy" value="#{computerController.selected.warrantyValidTill}" title="#{bundleItem.EditComputerTitle_warrantyValidTill}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleItem.CreateComputerLabel_warranty}" for="warranty" />
+                        <p:inputTextarea rows="4" cols="30" id="warranty" value="#{computerController.selected.warranty}" title="#{bundleItem.CreateComputerTitle_warranty}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{computerController.create}" value="#{bundleItem.Save}" update="display,:ComputerListForm:datalist,:growl" oncomplete="handleSubmit(args,'ComputerCreateDialog');"/>
+                    <p:commandButton value="#{bundleItem.Cancel}" onclick="ComputerCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

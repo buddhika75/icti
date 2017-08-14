@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItemCreateDlg" widgetVar="ItemCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleItem.CreateItemTitle}">
+            <h:form id="ItemCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemController.selected != null}">
+                        <p:outputLabel value="#{bundleItem.CreateItemLabel_parent}" for="parent" />
+                        <p:selectOneMenu id="parent" value="#{itemController.selected.parent}" >
+                            <f:selectItems value="#{itemController.itemsAvailableSelectOne}"
+                                           var="parentItem"
+                                           itemValue="#{parentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundleItem.CreateItemLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{itemController.selected.type}" title="#{bundleItem.CreateItemTitle_type}" />
+                        <p:outputLabel value="#{bundleItem.CreateItemLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{itemController.selected.name}" title="#{bundleItem.CreateItemTitle_name}" />
+                        <p:outputLabel value="#{bundleItem.CreateItemLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{itemController.selected.id}" title="#{bundleItem.CreateItemTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{itemController.create}" value="#{bundleItem.Save}" update="display,:ItemListForm:datalist,:growl" oncomplete="handleSubmit(args,'ItemCreateDialog');"/>
+                    <p:commandButton value="#{bundleItem.Cancel}" onclick="ItemCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

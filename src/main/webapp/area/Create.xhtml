@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AreaCreateDlg" widgetVar="AreaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAreaTitle}">
+            <h:form id="AreaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{areaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAreaLabel_type}" for="type" />
+                        <p:selectOneMenu id="type" value="#{areaController.selected.type}" > \
+                            <f:selectItems value="#{enumController.areaTypes}" ></f:selectItems>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreateAreaLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{areaController.selected.name}" title="#{bundle.CreateAreaTitle_name}" />
+                        <p:outputLabel value="#{bundle.CreateAreaLabel_code}" for="code" />
+                        <p:inputText id="code" value="#{areaController.selected.code}" title="#{bundle.CreateAreaTitle_code}" />
+
+
+                        <p:outputLabel value="#{bundle.CreateAreaLabel_parentArea}" for="parentArea" />
+                        <p:selectOneMenu id="parentArea" value="#{areaController.selected.parentArea}" >
+                            <f:selectItems value="#{areaController.itemsAvailableSelectOne}"
+                                           var="parentAreaItem" itemLabel="#{parentAreaItem.name}"
+                                           itemValue="#{parentAreaItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="PDHS"  />
+                        <p:selectOneMenu  value="#{areaController.selected.pdhsArea}" >
+                            <f:selectItems value="#{areaController.pdhsAreas}"
+                                           var="p" itemLabel="#{p.name}"
+                                           itemValue="#{p}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="RDHS"  />
+                        <p:selectOneMenu  value="#{areaController.selected.rdhsArea}" >
+                            <f:selectItems value="#{areaController.rdhsAreas}"
+                                           var="r" itemLabel="#{r.name}"
+                                           itemValue="#{r}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="MOH"  />
+                        <p:selectOneMenu  value="#{areaController.selected.mohArea}" >
+                            <f:selectItems value="#{areaController.mohAreas}"
+                                           var="m" itemLabel="#{m.name}"
+                                           itemValue="#{m}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="PHI"  />
+                        <p:selectOneMenu  value="#{areaController.selected.phiArea}" >
+                            <f:selectItems value="#{areaController.phiAreas}"
+                                           var="ph" itemLabel="#{ph.name}"
+                                           itemValue="#{ph}"/>
+                        </p:selectOneMenu>
+
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{areaController.create}" value="#{bundle.Save}" update="display,:AreaListForm:datalist,:growl" oncomplete="handleSubmit(args,'AreaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AreaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

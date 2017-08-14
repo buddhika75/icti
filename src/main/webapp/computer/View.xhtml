@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ComputerViewDlg" widgetVar="ComputerViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleItem.ViewComputerTitle}">
+            <h:form id="ComputerViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{computerController.selected != null}">
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_id}"/>
+                        <h:outputText value="#{computerController.selected.id}" title="#{bundleItem.ViewComputerTitle_id}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_inventoryNo}"/>
+                        <h:outputText value="#{computerController.selected.inventoryNo}" title="#{bundleItem.ViewComputerTitle_inventoryNo}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_serial}"/>
+                        <h:outputText value="#{computerController.selected.serial}" title="#{bundleItem.ViewComputerTitle_serial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_dateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.dateOfPurchase}" title="#{bundleItem.ViewComputerTitle_dateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_department}"/>
+                        <h:outputText value="#{computerController.selected.department}" title="#{bundleItem.ViewComputerTitle_department}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_purchasedOrTransferredFrom}"/>
+                        <h:outputText value="#{computerController.selected.purchasedOrTransferredFrom}" title="#{bundleItem.ViewComputerTitle_purchasedOrTransferredFrom}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_fromInstitution}"/>
+                        <h:outputText value="#{computerController.selected.fromInstitution}" title="#{bundleItem.ViewComputerTitle_fromInstitution}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_make}"/>
+                        <h:outputText value="#{computerController.selected.make}" title="#{bundleItem.ViewComputerTitle_make}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_model}"/>
+                        <h:outputText value="#{computerController.selected.model}" title="#{bundleItem.ViewComputerTitle_model}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_type}"/>
+                        <h:outputText value="#{computerController.selected.type}" title="#{bundleItem.ViewComputerTitle_type}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_processor}"/>
+                        <h:outputText value="#{computerController.selected.processor}" title="#{bundleItem.ViewComputerTitle_processor}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_speed}"/>
+                        <h:outputText value="#{computerController.selected.speed}" title="#{bundleItem.ViewComputerTitle_speed}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_ram}"/>
+                        <h:outputText value="#{computerController.selected.ram}" title="#{bundleItem.ViewComputerTitle_ram}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_ramCapasity}"/>
+                        <h:outputText value="#{computerController.selected.ramCapasity}" title="#{bundleItem.ViewComputerTitle_ramCapasity}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_hddType}"/>
+                        <h:outputText value="#{computerController.selected.hddType}" title="#{bundleItem.ViewComputerTitle_hddType}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_hddCapasity}"/>
+                        <h:outputText value="#{computerController.selected.hddCapasity}" title="#{bundleItem.ViewComputerTitle_hddCapasity}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_fdd}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.fdd}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cdr}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.cdr}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_soundCard}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.soundCard}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_tvCard}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.tvCard}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_networkCard}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.networkCard}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_externalModerm}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.externalModerm}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_internalModerm}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.internalModerm}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other1}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other1}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent1}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent1}" title="#{bundleItem.ViewComputerTitle_otherComopnent1}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other2}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other2}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent2}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent2}" title="#{bundleItem.ViewComputerTitle_otherComopnent2}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other3}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other3}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent3}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent3}" title="#{bundleItem.ViewComputerTitle_otherComopnent3}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other4}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other4}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent4}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent4}" title="#{bundleItem.ViewComputerTitle_otherComopnent4}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other5}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other5}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent5}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent5}" title="#{bundleItem.ViewComputerTitle_otherComopnent5}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other6}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other6}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent6}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent6}" title="#{bundleItem.ViewComputerTitle_otherComopnent6}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_other7}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.other7}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_otherComopnent7}"/>
+                        <h:outputText value="#{computerController.selected.otherComopnent7}" title="#{bundleItem.ViewComputerTitle_otherComopnent7}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_subTotalCost2_1To2_17}"/>
+                        <h:outputText value="#{computerController.selected.subTotalCost2_1To2_17}" title="#{bundleItem.ViewComputerTitle_subTotalCost2_1To2_17}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_keyboard}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.keyboard}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_keyboardSerial}"/>
+                        <h:outputText value="#{computerController.selected.keyboardSerial}" title="#{bundleItem.ViewComputerTitle_keyboardSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_keyboardCost}"/>
+                        <h:outputText value="#{computerController.selected.keyboardCost}" title="#{bundleItem.ViewComputerTitle_keyboardCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_mouse}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.mouse}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_mouseSerial}"/>
+                        <h:outputText value="#{computerController.selected.mouseSerial}" title="#{bundleItem.ViewComputerTitle_mouseSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_mouseCost}"/>
+                        <h:outputText value="#{computerController.selected.mouseCost}" title="#{bundleItem.ViewComputerTitle_mouseCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_internalMicrophone}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.internalMicrophone}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_externalMicrophone}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.externalMicrophone}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_microphoneSerial}"/>
+                        <h:outputText value="#{computerController.selected.microphoneSerial}" title="#{bundleItem.ViewComputerTitle_microphoneSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_internalMicrophoneCost}"/>
+                        <h:outputText value="#{computerController.selected.internalMicrophoneCost}" title="#{bundleItem.ViewComputerTitle_internalMicrophoneCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_externalMicrophoneCost}"/>
+                        <h:outputText value="#{computerController.selected.externalMicrophoneCost}" title="#{bundleItem.ViewComputerTitle_externalMicrophoneCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_scanner}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.scanner}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_scannerMake}"/>
+                        <h:outputText value="#{computerController.selected.scannerMake}" title="#{bundleItem.ViewComputerTitle_scannerMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_scannerModel}"/>
+                        <h:outputText value="#{computerController.selected.scannerModel}" title="#{bundleItem.ViewComputerTitle_scannerModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_scannerSerial}"/>
+                        <h:outputText value="#{computerController.selected.scannerSerial}" title="#{bundleItem.ViewComputerTitle_scannerSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_scannerDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.scannerDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_scannerDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_monitorMake}"/>
+                        <h:outputText value="#{computerController.selected.monitorMake}" title="#{bundleItem.ViewComputerTitle_monitorMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_monitorModel}"/>
+                        <h:outputText value="#{computerController.selected.monitorModel}" title="#{bundleItem.ViewComputerTitle_monitorModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_monitorSerial}"/>
+                        <h:outputText value="#{computerController.selected.monitorSerial}" title="#{bundleItem.ViewComputerTitle_monitorSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_monitorDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.monitorDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_monitorDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_monitorCost}"/>
+                        <h:outputText value="#{computerController.selected.monitorCost}" title="#{bundleItem.ViewComputerTitle_monitorCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_printerMake}"/>
+                        <h:outputText value="#{computerController.selected.printerMake}" title="#{bundleItem.ViewComputerTitle_printerMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_printerModel}"/>
+                        <h:outputText value="#{computerController.selected.printerModel}" title="#{bundleItem.ViewComputerTitle_printerModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_printerSerial}"/>
+                        <h:outputText value="#{computerController.selected.printerSerial}" title="#{bundleItem.ViewComputerTitle_printerSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_printerDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.printerDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_printerDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_printerCost}"/>
+                        <h:outputText value="#{computerController.selected.printerCost}" title="#{bundleItem.ViewComputerTitle_printerCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_speakerMake}"/>
+                        <h:outputText value="#{computerController.selected.speakerMake}" title="#{bundleItem.ViewComputerTitle_speakerMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_speakerModel}"/>
+                        <h:outputText value="#{computerController.selected.speakerModel}" title="#{bundleItem.ViewComputerTitle_speakerModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_speakerSerial}"/>
+                        <h:outputText value="#{computerController.selected.speakerSerial}" title="#{bundleItem.ViewComputerTitle_speakerSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_speakerDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.speakerDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_speakerDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_speakerCost}"/>
+                        <h:outputText value="#{computerController.selected.speakerCost}" title="#{bundleItem.ViewComputerTitle_speakerCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_upsMake}"/>
+                        <h:outputText value="#{computerController.selected.upsMake}" title="#{bundleItem.ViewComputerTitle_upsMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_upsModel}"/>
+                        <h:outputText value="#{computerController.selected.upsModel}" title="#{bundleItem.ViewComputerTitle_upsModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_upsSerial}"/>
+                        <h:outputText value="#{computerController.selected.upsSerial}" title="#{bundleItem.ViewComputerTitle_upsSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_upsDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.upsDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_upsDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_upsCost}"/>
+                        <h:outputText value="#{computerController.selected.upsCost}" title="#{bundleItem.ViewComputerTitle_upsCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_stabilizerMake}"/>
+                        <h:outputText value="#{computerController.selected.stabilizerMake}" title="#{bundleItem.ViewComputerTitle_stabilizerMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_stabilizerModel}"/>
+                        <h:outputText value="#{computerController.selected.stabilizerModel}" title="#{bundleItem.ViewComputerTitle_stabilizerModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_stabilizerSerial}"/>
+                        <h:outputText value="#{computerController.selected.stabilizerSerial}" title="#{bundleItem.ViewComputerTitle_stabilizerSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_stabilizerDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.stabilizerDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_stabilizerDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_stabilizerCost}"/>
+                        <h:outputText value="#{computerController.selected.stabilizerCost}" title="#{bundleItem.ViewComputerTitle_stabilizerCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cablesMake}"/>
+                        <h:outputText value="#{computerController.selected.cablesMake}" title="#{bundleItem.ViewComputerTitle_cablesMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cablesDescription}"/>
+                        <h:outputText value="#{computerController.selected.cablesDescription}" title="#{bundleItem.ViewComputerTitle_cablesDescription}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cablesModel}"/>
+                        <h:outputText value="#{computerController.selected.cablesModel}" title="#{bundleItem.ViewComputerTitle_cablesModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cablesSerial}"/>
+                        <h:outputText value="#{computerController.selected.cablesSerial}" title="#{bundleItem.ViewComputerTitle_cablesSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cablesDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.cablesDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_cablesDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_cablesCost}"/>
+                        <h:outputText value="#{computerController.selected.cablesCost}" title="#{bundleItem.ViewComputerTitle_cablesCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_othersMake}"/>
+                        <h:outputText value="#{computerController.selected.othersMake}" title="#{bundleItem.ViewComputerTitle_othersMake}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_othersDescription}"/>
+                        <h:outputText value="#{computerController.selected.othersDescription}" title="#{bundleItem.ViewComputerTitle_othersDescription}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_othersModel}"/>
+                        <h:outputText value="#{computerController.selected.othersModel}" title="#{bundleItem.ViewComputerTitle_othersModel}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_othersSerial}"/>
+                        <h:outputText value="#{computerController.selected.othersSerial}" title="#{bundleItem.ViewComputerTitle_othersSerial}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_othersDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.othersDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_othersDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_othersCost}"/>
+                        <h:outputText value="#{computerController.selected.othersCost}" title="#{bundleItem.ViewComputerTitle_othersCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_operatingSystem}"/>
+                        <h:outputText value="#{computerController.selected.operatingSystem}" title="#{bundleItem.ViewComputerTitle_operatingSystem}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_operatingSystemCost}"/>
+                        <h:outputText value="#{computerController.selected.operatingSystemCost}" title="#{bundleItem.ViewComputerTitle_operatingSystemCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_internetEmail}"/>
+                        <p:selectBooleanCheckbox value="#{computerController.selected.internetEmail}" disabled="true"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_internetEmailDateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.internetEmailDateOfPurchase}" title="#{bundleItem.ViewComputerTitle_internetEmailDateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_internetEmailCost}"/>
+                        <h:outputText value="#{computerController.selected.internetEmailCost}" title="#{bundleItem.ViewComputerTitle_internetEmailCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware1Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware1Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware1Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware1DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware1DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware1DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware1Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware1Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware1Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware2Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware2Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware2Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware2DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware2DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware2DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware2Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware2Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware2Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware3Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware3Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware3Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware3DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware3DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware3DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware3Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware3Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware3Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware4Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware4Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware4Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware4DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware4DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware4DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware4Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware4Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware4Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware5Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware5Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware5Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware5DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware5DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware5DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware5Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware5Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware5Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware6Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware6Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware6Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware6DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware6DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware6DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware6Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware6Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware6Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware7Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware7Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware7Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware7DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware7DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware7DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware7Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware7Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware7Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware8Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware8Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware8Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware8DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware8DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware8DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware8Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware8Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware8Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware9Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware9Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware9Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware9DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware9DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware9DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware9Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware9Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware9Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware10Description}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware10Description}" title="#{bundleItem.ViewComputerTitle_additionalSoftware10Description}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware10DateOfPurchase}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware10DateOfPurchase}" title="#{bundleItem.ViewComputerTitle_additionalSoftware10DateOfPurchase}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_additionalSoftware10Cost}"/>
+                        <h:outputText value="#{computerController.selected.additionalSoftware10Cost}" title="#{bundleItem.ViewComputerTitle_additionalSoftware10Cost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_totalCost}"/>
+                        <h:outputText value="#{computerController.selected.totalCost}" title="#{bundleItem.ViewComputerTitle_totalCost}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_maintainedBy}"/>
+                        <h:outputText value="#{computerController.selected.maintainedBy}" title="#{bundleItem.ViewComputerTitle_maintainedBy}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_importantInformation}"/>
+                        <h:outputText value="#{computerController.selected.importantInformation}" title="#{bundleItem.ViewComputerTitle_importantInformation}"/>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_warrantyValidTill}"/>
+                        <h:outputText value="#{computerController.selected.warrantyValidTill}" title="#{bundleItem.ViewComputerTitle_warrantyValidTill}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleItem.ViewComputerLabel_warranty}"/>
+                        <h:outputText value="#{computerController.selected.warranty}" title="#{bundleItem.ViewComputerTitle_warranty}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundleItem.Close}" onclick="ComputerViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
