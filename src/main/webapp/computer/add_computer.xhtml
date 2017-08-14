@@ -74,44 +74,142 @@
                                         <p:outputLabel value="Computer" ></p:outputLabel>
                                     </p:column>
                                     <p:column colspan="2" >
+                                        <p:outputLabel value="Make:" for="make" />
+                                        <p:inputText id="make" value="#{computerController.selected.make}" title="Make" />
 
                                     </p:column>
                                     <p:column colspan="2" >
+                                        <p:outputLabel value="Model:" for="model" />
+                                        <p:inputText id="model" value="#{computerController.selected.model}" title="Model" />
 
                                     </p:column>
                                     <p:column colspan="2" >
+                                        <p:outputLabel value="Serial:" for="serial" />
+                                        <p:inputText id="serial" value="#{computerController.selected.serial}" title="Serial" />
 
                                     </p:column>
                                 </p:row>
 
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.1" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Type:" for="type" />
+                                    </p:column>
+                                    <p:column colspan="6" >
+                                        <p:selectOneMenu id="type" value="#{computerController.selected.type}" title="Type" >
+                                            <f:selectItem itemLabel="Select" ></f:selectItem>
+                                            <f:selectItems value="#{enumController.computerTypes}" ></f:selectItems>
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.2" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="Processor:" for="pro" />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:selectOneMenu id="pro" value="#{computerController.selected.processor}" title="Processor" >
+                                            <f:selectItem itemLabel="Select" ></f:selectItem>
+                                            <f:selectItems value="#{enumController.processors}" ></f:selectItems>
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="Speed:" for="speed" />
+                                        <p:inputText id="speed" value="#{computerController.selected.speed}" title="Speed" />
+                                    </p:column>
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.3" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="RAM:" for="ram" />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:selectOneMenu id="ram" value="#{computerController.selected.ram}" title="RAM" >
+                                            <f:selectItem itemLabel="Select" ></f:selectItem>
+                                            <f:selectItems value="#{enumController.rams}" ></f:selectItems>
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="Ram Capasity:" for="ramCapasity" />
+                                        <p:inputText id="ramCapasity" value="#{computerController.selected.ramCapasity}" title="RamCapasity" />
+
+                                    </p:column>
+
+                                </p:row>
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.4" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="HDD:" />
+                                    </p:column>
+                                    <p:column colspan="2" >
+                                        <p:selectOneMenu id="hddtype" value="#{computerController.selected.hddType}" title="HDD" >
+                                            <f:selectItem itemLabel="Select" ></f:selectItem>
+                                            <f:selectItems value="#{enumController.hddTypes}" ></f:selectItems>
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="HddCapasity:" for="hddCapasity" />
+                                        <p:inputText id="hddCapasity" value="#{computerController.selected.hddCapasity}" title="HddCapasity" />
+
+                                    </p:column>
+                                </p:row>
+
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.5" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="FDD:" for="fdd" />
+                                        <p:selectBooleanCheckbox id="fdd" value="#{computerController.selected.fdd}" title="Fdd" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel value="2.12" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:inputText id="otherComopnent1" value="#{computerController.selected.otherComopnent1}" title="OtherComopnent1" />
+                                        <p:selectBooleanCheckbox id="other1" value="#{computerController.selected.other1}" title="Other1" />
+                                    </p:column>
+                                </p:row>
+
+
+                                <p:row >
+                                    <p:column colspan="2" >
+                                        <p:outputLabel value="2.6" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="4" >
+                                        <p:outputLabel value="CD Drive" for="cdr" />
+                                        <p:selectBooleanCheckbox id="cdr" value="#{computerController.selected.cdr}" title="CD Drive" />
+                                    </p:column>
+                                    <p:column colspan="1" >
+                                        <p:outputLabel value="2.13" ></p:outputLabel>
+                                    </p:column>
+                                    <p:column colspan="3" >
+                                        <p:inputText id="otherComopnent2" value="#{computerController.selected.otherComopnent2}" title="OtherComopnent2" />
+                                        <p:selectBooleanCheckbox id="other2" value="#{computerController.selected.other2}" title="Other2" />
+                                    </p:column>
+                                </p:row>
+
+
                                 <h:panelGroup rendered="false" >
 
-                                    <p:outputLabel value="Serial:" for="serial" />
-                                    <p:inputText id="serial" value="#{computerController.selected.serial}" title="Serial" />
 
-                                    <p:outputLabel value="Make:" for="make" />
-                                    <p:inputText id="make" value="#{computerController.selected.make}" title="Make" />
-                                    <p:outputLabel value="Model:" for="model" />
-                                    <p:inputText id="model" value="#{computerController.selected.model}" title="Model" />
-                                    <p:outputLabel value="Type:" for="type" />
-                                    <p:inputText id="type" value="#{computerController.selected.type}" title="Type" />
-                                    <p:outputLabel value="Processor:" for="processor" />
-                                    <p:inputText id="processor" value="#{computerController.selected.processor}" title="Processor" />
-                                    <p:outputLabel value="Speed:" for="speed" />
-                                    <p:inputText id="speed" value="#{computerController.selected.speed}" title="Speed" />
-                                    <p:outputLabel value="Ram:" for="ram" />
-                                    <p:inputText id="ram" value="#{computerController.selected.ram}" title="Ram" />
-                                    <p:outputLabel value="RamCapasity:" for="ramCapasity" />
-                                    <p:inputText id="ramCapasity" value="#{computerController.selected.ramCapasity}" title="RamCapasity" />
-                                    <p:outputLabel value="HddType:" for="hddType" />
-                                    <p:inputText id="hddType" value="#{computerController.selected.hddType}" title="HddType" />
-                                    <p:outputLabel value="HddCapasity:" for="hddCapasity" />
-                                    <p:inputText id="hddCapasity" value="#{computerController.selected.hddCapasity}" title="HddCapasity" />
-                                    <p:outputLabel value="Fdd:" for="fdd" />
-                                    <p:inputText id="fdd" value="#{computerController.selected.fdd}" title="Fdd" />
-                                    <p:outputLabel value="Cdr:" for="cdr" />
-                                    <p:inputText id="cdr" value="#{computerController.selected.cdr}" title="Cdr" />
-                                    <p:outputLabel value="SoundCard:" for="soundCard" />
+
+
+
+
                                     <p:inputText id="soundCard" value="#{computerController.selected.soundCard}" title="SoundCard" />
                                     <p:outputLabel value="TvCard:" for="tvCard" />
                                     <p:inputText id="tvCard" value="#{computerController.selected.tvCard}" title="TvCard" />
@@ -121,10 +219,6 @@
                                     <p:inputText id="externalModerm" value="#{computerController.selected.externalModerm}" title="ExternalModerm" />
                                     <p:outputLabel value="InternalModerm:" for="internalModerm" />
                                     <p:inputText id="internalModerm" value="#{computerController.selected.internalModerm}" title="InternalModerm" />
-                                    <p:outputLabel value="Other1:" for="other1" />
-                                    <p:inputText id="other1" value="#{computerController.selected.other1}" title="Other1" />
-                                    <p:outputLabel value="OtherComopnent1:" for="otherComopnent1" />
-                                    <p:inputText id="otherComopnent1" value="#{computerController.selected.otherComopnent1}" title="OtherComopnent1" />
                                     <p:outputLabel value="Other2:" for="other2" />
                                     <p:inputText id="other2" value="#{computerController.selected.other2}" title="Other2" />
                                     <p:outputLabel value="OtherComopnent2:" for="otherComopnent2" />
