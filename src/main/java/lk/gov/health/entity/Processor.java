@@ -15,6 +15,7 @@ public enum Processor {
     core_i7,
     core_i9,
     core_2_duo,
+    core_2_quad,
     duel_core,
     pentium_pro,
     pentium,

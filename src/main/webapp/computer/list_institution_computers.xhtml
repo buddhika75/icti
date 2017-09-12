@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template.xhtml">
+
+            <ui:define name="body">
+                <p:panel header="Reports" >
+
+
+                    <f:view>
+
+
+                        <h:form>
+
+                            <p:panelGrid columns="2" >
+                                <p:outputLabel value="Institution" ></p:outputLabel>
+                                <p:selectOneMenu value="#{computerController.institution}" >
+                                    <f:selectItem itemLabel="Select" ></f:selectItem>
+                                    <f:selectItems value="#{institutionController.items}" var="i" itemLabel="#{i.name}" itemValue="#{i}" ></f:selectItems>
+                                </p:selectOneMenu>
+                                <p:commandButton ajax="false" action="#{computerController.listInstitutionComputers()}" value="List All Computers of Institution" ></p:commandButton>
+                                <p:commandButton ajax="false" value="Download as Excel" >
+                                    <p:dataExporter target="tbl" type="xls" fileName="All Computers of Institute" ></p:dataExporter>
+                                </p:commandButton>
+                            </p:panelGrid>
+
+                            <p:dataTable id="tbl" value="#{computerController.selectedItems}" var="item" style="width: 100%;"
+                                         rows="20" rowKey="n"
+                                         paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="10,20,50,100">
+                                <p:column width="20" >
+                                    <f:facet name="header">
+                                        <h:outputText value="No"/>
+                                    </f:facet>
+                                    <h:outputText value="#{n}"/>
+                                </p:column>
+                                <p:column sortBy="#{item.department.name}" filterBy="#{item.department.name}" width="100">
+                                    <f:facet name="header">
+                                        <h:outputText value="Department"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.department.name}"/>
+                                </p:column>
+                                <p:column width="150" sortBy="#{item.inventoryNo}" filterBy="#{item.inventoryNo}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Inventory No"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.inventoryNo}"/>
+                                </p:column>
+                                <p:column width="50"  sortBy="#{item.type}" filterBy="#{item.type}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Type"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.type}"/>
+                                </p:column>
+                                <p:column width="75" sortBy="#{item.processor}" filterBy="#{item.processor}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Processor"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.processor}"/>
+                                </p:column>
+                                <p:column  sortBy="#{item.operatingSystem}" filterBy="#{item.operatingSystem}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Operating System"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.operatingSystem}"/>
+                                </p:column>
+                                <p:column  sortBy="#{item.serial}" filterBy="#{item.serial}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Serial"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.serial}"/>
+                                </p:column>
+                                <p:column  sortBy="#{item.make}" filterBy="#{item.make}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Make"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.make}"/>
+                                </p:column>
+                                <p:column >
+                                    <f:facet name="header">
+                                        <h:outputText value="Printer"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.printer?'YES':'No'}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="UPS"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ups?'YES':'No'}"/>
+                                </p:column>
+
+                                <p:column sortBy="#{item.totalCost}" filterBy="#{item.totalCost}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Total Cost"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.totalCost}">
+                                        <f:convertNumber pattern="#,##0.00" ></f:convertNumber>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ACTIONS"/>
+                                    </f:facet>
+
+                                    <p:commandButton value="EDIT" action="add_computer" ajax="false" >
+                                        <f:setPropertyActionListener value="#{item}" target="#{computerController.selected}" ></f:setPropertyActionListener>
+                                    </p:commandButton>
+
+                                </p:column>
+                                <p:columnGroup type="footer">
+                                    <p:row>
+                                        <p:column colspan="10" style="text-align:right" footerText="Totals:" />
+                                        <p:column footerText="$#{computerController.costTotal}" />
+                                    </p:row>
+                                </p:columnGroup>
+                            </p:dataTable>
+                        </h:form>
+                    </f:view>
+
+
+
+                </p:panel>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

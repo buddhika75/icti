@@ -25,7 +25,7 @@
                         <p:submenu label="Inventory" rendered="#{webUserController.logged}">
                             <p:menuitem ajax="false" value="Add Computer Details" action="#{computerController.toAddComputer()}" />
                             <p:menuitem ajax="false" value="Search Computers" action="#{notificationController.toAnalyzeGnByMoh}" />
-                            <p:menuitem ajax="false" value="Reports" action="#{notificationController.toListNotificationsByMoh}" />
+                            <p:menuitem ajax="false" value="Reports" action="/computer/reports_index" />
                         </p:submenu>
                         <p:submenu label="User" rendered="#{webUserController.logged}">
                             <p:menuitem ajax="false" value="Edit my details" action="#{webUserController.toEditMyDetails()}" />
@@ -57,15 +57,15 @@
                 </h:form>
             </p:layoutUnit>
 
-            <p:layoutUnit position="center" >
+            <p:layoutUnit position="center"  >
 
 
                 <p:panel header="Login" rendered="#{!webUserController.logged}" style="z-index: 10; width: 400px; height: 150px;" >
                     <h:form >
-                        <h:panelGrid columns="3" >
-                            <p:outputLabel value="Username" style="z-index: 10;" ></p:outputLabel>
+                        <h:panelGrid columns="3" style="z-index: 11;" >
+                            <p:outputLabel value="Username" style="z-index: 11;" ></p:outputLabel>
                             <p:spacer height="1" width="30" ></p:spacer>
-                            <p:inputText value="#{webUserController.userName}" style="z-index: 100;" ></p:inputText>
+                            <p:inputText value="#{webUserController.userName}" style="z-index: 12;" ></p:inputText>
                             <p:outputLabel value="Password" ></p:outputLabel>
                             <p:spacer height="1" width="30" ></p:spacer>
                             <p:inputText value="#{webUserController.password}" ></p:inputText>
@@ -74,14 +74,13 @@
                     </h:form>
                 </p:panel>
 
-                <p:graphicImage library="images" name="main1.jpg" rendered="#{!webUserController.logged}" styleClass="centrecontent" width="75%" style="z-index: 0;" ></p:graphicImage>
 
 
-                <h:panelGrid rendered="#{webUserController.logged}" >
+                <h:panelGroup rendered="#{webUserController.logged}" >
                     <ui:insert name="body">
                         Please Login to continue
                     </ui:insert>
-                </h:panelGrid>
+                </h:panelGroup>
 
 
             </p:layoutUnit>

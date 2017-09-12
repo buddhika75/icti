@@ -15,6 +15,7 @@ public enum OperatingSystem {
     Windows_8,
     Windows_8_1,
     Windows_10,
+    Windows_Vista,
     Ubuntu,
     Android,
     Max_OS,

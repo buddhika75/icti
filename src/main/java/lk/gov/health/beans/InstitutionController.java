@@ -90,6 +90,24 @@ public class InstitutionController implements Serializable {
         getFacade().create(mi);
         return mi;
     }
+    
+    public List<Institution> getInstitutions(InstitutionType type, Institution parent) {
+        String j;
+        Map m = new HashMap();
+        j = "select i from "
+                + " Institution i "
+                + " where i.name is not null";
+        if (type != null) {
+            j += " and i.type=:t ";
+            m.put("t", type);
+        }
+        if (parent != null) {
+            j += " and i.parent=:p ";
+            m.put("p", parent);
+        }
+        j+= " order by i.name";
+        return getFacade().findBySQL(j, m);
+    }
 
     public List<Institution> getInstitutions(InstitutionType type, Area phiArea, Area area, Area educationalZone) {
         String j;

@@ -191,6 +191,16 @@ public class WebUserController implements Serializable {
         return "/webUser/add_webuser_index";
     }
 
+    public List<WebUser> compelteUsers(String qry) {
+        String j;
+        Map m = new HashMap();
+        j = "select w from WebUser w "
+                + " where upper(w.userName) like :un "
+                + " order by w.userName";
+        m.put("un", "%" + userName.trim().toUpperCase() + "%");
+        return getFacade().findBySQL(j, m);
+    }
+
     public String login() {
         makeAllLoggedVariablesNull();
         if (developmentStage) {
@@ -1191,7 +1201,7 @@ public class WebUserController implements Serializable {
     public Date getThirtyDaysBack() {
         return getThirtyDaysBack(new Date());
     }
-    
+
     public Date getThirtyDaysBack(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);

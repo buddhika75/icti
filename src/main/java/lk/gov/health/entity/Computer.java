@@ -45,13 +45,13 @@ public class Computer implements Serializable {
     ComputerType type;
     @Enumerated(EnumType.STRING)
     Processor processor;
-    Double speed;
+    Double speed =0.0;
     @Enumerated(EnumType.STRING)
     Ram ram;
-    Double ramCapasity;
+    Double ramCapasity =0.0;
     @Enumerated(EnumType.STRING)
     HddType hddType;
-    Double hddCapasity;
+    Double hddCapasity =0.0;
     Boolean fdd;
     Boolean cdr;
     Boolean soundCard;
@@ -74,22 +74,22 @@ public class Computer implements Serializable {
     String otherComopnent6;
     Boolean other7;
     String otherComopnent7;
-    Double subTotalCost2_1To2_17;
+    Double subTotalCost2_1To2_17 =0.0;
 
     Boolean keyboard;
     String keyboardSerial;
-    Double keyboardCost;
+    Double keyboardCost =0.0;
 
     Boolean mouse;
     String mouseSerial;
-    Double mouseCost;
+    Double mouseCost =0.0;
 
     Boolean internalMicrophone;
     Boolean externalMicrophone;
 
     String microphoneSerial;
-    Double internalMicrophoneCost;
-    Double externalMicrophoneCost;
+    Double internalMicrophoneCost =0.0;
+    Double externalMicrophoneCost =0.0;
 
     Boolean scanner;
     String scannerMake;
@@ -97,41 +97,44 @@ public class Computer implements Serializable {
     String scannerSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date scannerDateOfPurchase;
+    private Double scannerCost =0.0;
 
     String monitorMake;
     String monitorModel;
     String monitorSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date monitorDateOfPurchase;
-    Double monitorCost;
+    Double monitorCost =0.0;
 
+    Boolean printer;
     String printerMake;
     String printerModel;
     String printerSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date printerDateOfPurchase;
-    Double printerCost;
+    Double printerCost =0.0;
 
     String speakerMake;
     String speakerModel;
     String speakerSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date speakerDateOfPurchase;
-    Double speakerCost;
+    Double speakerCost =0.0;
 
+    Boolean ups;
     String upsMake;
     String upsModel;
     String upsSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date upsDateOfPurchase;
-    Double upsCost;
+    Double upsCost =0.0;
 
     String stabilizerMake;
     String stabilizerModel;
     String stabilizerSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date stabilizerDateOfPurchase;
-    Double stabilizerCost;
+    Double stabilizerCost =0.0;
 
     String cablesMake;
     String cablesDescription;
@@ -139,7 +142,7 @@ public class Computer implements Serializable {
     String cablesSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date cablesDateOfPurchase;
-    Double cablesCost;
+    Double cablesCost =0.0;
 
     String othersMake;
     String othersDescription;
@@ -147,68 +150,68 @@ public class Computer implements Serializable {
     String othersSerial;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date othersDateOfPurchase;
-    Double othersCost;
+    Double othersCost =0.0;
 
     @Enumerated(EnumType.STRING)
     OperatingSystem operatingSystem;
-    Double operatingSystemCost;
+    Double operatingSystemCost =0.0;
     
     Boolean internetEmail;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date internetEmailDateOfPurchase;
-    Double internetEmailCost;
+    Double internetEmailCost =0.0;
     
     String additionalSoftware1Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware1DateOfPurchase;
-    Double additionalSoftware1Cost;
+    Double additionalSoftware1Cost =0.0;
     
     String additionalSoftware2Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware2DateOfPurchase;
-    Double additionalSoftware2Cost;
+    Double additionalSoftware2Cost =0.0;
 
     String additionalSoftware3Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware3DateOfPurchase;
-    Double additionalSoftware3Cost;
+    Double additionalSoftware3Cost =0.0;
 
     String additionalSoftware4Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware4DateOfPurchase;
-    Double additionalSoftware4Cost;
+    Double additionalSoftware4Cost =0.0;
 
     String additionalSoftware5Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware5DateOfPurchase;
-    Double additionalSoftware5Cost;
+    Double additionalSoftware5Cost =0.0;
 
     String additionalSoftware6Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware6DateOfPurchase;
-    Double additionalSoftware6Cost;
+    Double additionalSoftware6Cost =0.0;
 
     String additionalSoftware7Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware7DateOfPurchase;
-    Double additionalSoftware7Cost;
+    Double additionalSoftware7Cost =0.0;
 
     String additionalSoftware8Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware8DateOfPurchase;
-    Double additionalSoftware8Cost;
+    Double additionalSoftware8Cost =0.0;
 
     String additionalSoftware9Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware9DateOfPurchase;
-    Double additionalSoftware9Cost;
+    Double additionalSoftware9Cost =0.0;
 
     String additionalSoftware10Description;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date additionalSoftware10DateOfPurchase;
-    Double additionalSoftware10Cost;
+    Double additionalSoftware10Cost =0.0;
 
-    Double totalCost;
+    Double totalCost =0.0;
     @ManyToOne
     Institution maintainedBy;
     @Lob
@@ -217,6 +220,56 @@ public class Computer implements Serializable {
     Date warrantyValidTill;
     @Lob
     String warranty;
+    @ManyToOne
+    WebUser usedBy;
+    @ManyToOne
+    WebUser inventoryBelongsTo;
+    @ManyToOne
+    Institution institution;
+
+    public Boolean getPrinter() {
+        return printer;
+    }
+
+    public void setPrinter(Boolean printer) {
+        this.printer = printer;
+    }
+
+    public Boolean getUps() {
+        return ups;
+    }
+
+    public void setUps(Boolean ups) {
+        this.ups = ups;
+    }
+
+    
+    
+    public WebUser getUsedBy() {
+        return usedBy;
+    }
+
+    public void setUsedBy(WebUser usedBy) {
+        this.usedBy = usedBy;
+    }
+
+    public WebUser getInventoryBelongsTo() {
+        return inventoryBelongsTo;
+    }
+
+    public void setInventoryBelongsTo(WebUser inventoryBelongsTo) {
+        this.inventoryBelongsTo = inventoryBelongsTo;
+    }
+
+    public Institution getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(Institution institution) {
+        this.institution = institution;
+    }
+    
+    
     
 
     public Long getId() {
@@ -227,6 +280,8 @@ public class Computer implements Serializable {
         this.id = id;
     }
 
+    
+    
     public String getInventoryNo() {
         return inventoryNo;
     }
@@ -1292,6 +1347,14 @@ public class Computer implements Serializable {
     @Override
     public String toString() {
         return "lk.gov.health.entity.Computer[ id=" + id + " ]";
+    }
+
+    public Double getScannerCost() {
+        return scannerCost;
+    }
+
+    public void setScannerCost(Double scannerCost) {
+        this.scannerCost = scannerCost;
     }
 
 }
