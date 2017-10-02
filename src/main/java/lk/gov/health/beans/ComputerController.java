@@ -55,7 +55,13 @@ public class ComputerController implements Serializable {
         this.costTotal = costTotal;
     }
     
-    
+    public void deleteSelected(){
+        if(selected==null){
+            JsfUtil.addErrorMessage("Nothing is selected");
+            return ;
+        }
+        getFacade().remove(selected);
+    }
 
     public String listInstitutionComputers() {
         selectedItems = null;
@@ -76,6 +82,27 @@ public class ComputerController implements Serializable {
         return "/computer/list_institution_computers";
     }
 
+    
+    public String editInstitutionComputers() {
+        selectedItems = null;
+        costTotal =0.0;
+        if (institution == null) {
+            selectedItems = new ArrayList<Computer>();
+        } else {
+            String j = "Select c from Computer c "
+                    + " where c.institution=:ins "
+                    + " ";
+            Map m = new HashMap();
+            m.put("ins", institution);
+            selectedItems = getFacade().findBySQL(j, m);
+        }
+        for(Computer c:selectedItems){
+            costTotal += c.getTotalCost();
+        }
+        return "/computer/edit_institution_computers";
+    }
+
+    
     public String listDepartmentComputers() {
         selectedItems = null;
         costTotal =0.0;
@@ -213,6 +240,17 @@ public class ComputerController implements Serializable {
         return "/computer/add_computer";
     }
 
+    public void saveSelectedItems(){
+        for(Computer c:selectedItems){
+            if(c.getId() != null){
+                getFacade().edit(c);
+            }else{
+                getFacade().create(c);
+            }
+        }
+        JsfUtil.addSuccessMessage("All Saved");
+    }
+    
     public String saveComputer() {
         if (selected.getId() == null) {
             getFacade().create(selected);

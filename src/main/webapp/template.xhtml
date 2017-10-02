@@ -24,8 +24,8 @@
                         <p:menuitem value="ICT Inventory System || " outcome="/index" />
                         <p:submenu label="Inventory" rendered="#{webUserController.logged}">
                             <p:menuitem ajax="false" value="Add Computer Details" action="#{computerController.toAddComputer()}" />
-                            <p:menuitem ajax="false" value="Search Computers" action="#{notificationController.toAnalyzeGnByMoh}" />
                             <p:menuitem ajax="false" value="Reports" action="/computer/reports_index" />
+                            <p:menuitem ajax="false" value="Edit" action="#{computerController.editInstitutionComputers()}" />
                         </p:submenu>
                         <p:submenu label="User" rendered="#{webUserController.logged}">
                             <p:menuitem ajax="false" value="Edit my details" action="#{webUserController.toEditMyDetails()}" />

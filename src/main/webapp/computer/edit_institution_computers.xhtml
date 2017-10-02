@@ -19,16 +19,19 @@
 
                         <h:form>
 
-                            <p:panelGrid columns="2" >
+                            <p:panelGrid columns="6" >
                                 <p:outputLabel value="Institution" ></p:outputLabel>
                                 <p:selectOneMenu value="#{computerController.institution}" >
                                     <f:selectItem itemLabel="Select" ></f:selectItem>
                                     <f:selectItems value="#{institutionController.items}" var="i" itemLabel="#{i.name}" itemValue="#{i}" ></f:selectItems>
                                 </p:selectOneMenu>
-                                <p:commandButton ajax="false" action="#{computerController.listInstitutionComputers()}" value="List All Computers of Institution" ></p:commandButton>
+                                <p:spacer height="1" width="10" ></p:spacer>
+                                <p:commandButton ajax="false" action="#{computerController.editInstitutionComputers()}" value="List All Computers of Institution" ></p:commandButton>
+                                <p:commandButton ajax="false" value="Save" action="#{computerController.saveSelectedItems()}" ></p:commandButton>
                                 <p:commandButton ajax="false" value="Download as Excel" >
                                     <p:dataExporter target="tbl" type="xls" fileName="All Computers of Institute" ></p:dataExporter>
                                 </p:commandButton>
+
                             </p:panelGrid>
 
                             <p:dataTable id="tbl" value="#{computerController.selectedItems}" var="item" 
@@ -42,7 +45,7 @@
                                     </f:facet>
                                     <h:outputText value="#{n+1}"/>
                                 </p:column>
-                                <p:column sortBy="#{item.department.name}" filterBy="#{item.department.name}" >
+                                <p:column width="40" sortBy="#{item.department.name}" filterBy="#{item.department.name}" >
                                     <f:facet name="header">
                                         <h:outputText value="Department"/>
                                     </f:facet>
@@ -52,41 +55,57 @@
                                     <f:facet name="header">
                                         <h:outputText value="Inventory No"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.inventoryNo}"/>
+                                    <p:inputText value="#{item.inventoryNo}">
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:inputText>
                                 </p:column>
-                                <p:column   sortBy="#{item.type}" filterBy="#{item.type}">
+                                <p:column width="100"   sortBy="#{item.type}" filterBy="#{item.type}">
                                     <f:facet name="header">
                                         <h:outputText value="Type"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.type}"/>
+                                    <p:selectOneMenu id="type" value="#{item.type}" title="Type" >
+                                        <f:selectItem itemLabel="Select" ></f:selectItem>
+                                        <f:selectItems value="#{enumController.computerTypes}" ></f:selectItems>
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:selectOneMenu>
                                 </p:column>
-                                <p:column  >
-                                    <f:facet name="header">
-                                        <h:outputText value="Make/Model"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.make}"/>
-                                    <h:outputText value="#{item.model}"/>
-                                </p:column>
-                                <p:column sortBy="#{item.processor}" filterBy="#{item.processor}">
+
+                                <p:column width="50" sortBy="#{item.processor}" filterBy="#{item.processor}">
                                     <f:facet name="header">
                                         <h:outputText value="Processor"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.processor}"/>
+                                    <p:selectOneMenu id="pro" value="#{item.processor}" title="Processor" >
+                                        <f:selectItem itemLabel="Select" ></f:selectItem>
+                                        <f:selectItems value="#{enumController.processors}" ></f:selectItems>
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:selectOneMenu>
                                 </p:column>
-                                <p:column  sortBy="#{item.operatingSystem}" filterBy="#{item.operatingSystem}">
+                                <p:column  width="50" sortBy="#{item.operatingSystem}" filterBy="#{item.operatingSystem}">
                                     <f:facet name="header">
                                         <h:outputText value="Operating System"/>
                                     </f:facet>
                                     <h:outputText value="#{item.operatingSystem}"/>
                                 </p:column>
-                                <p:column  sortBy="#{item.serial}" filterBy="#{item.serial}">
+                                <p:column width="200"  sortBy="#{item.serial}" filterBy="#{item.serial}">
                                     <f:facet name="header">
                                         <h:outputText value="Serial"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.serial}"/>
+                                    <p:inputText value="#{item.serial}">
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:inputText>
                                 </p:column>
-                                
-                                <p:column >
+                                <p:column width="100"  sortBy="#{item.make}" filterBy="#{item.make}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Make/Model"/>
+                                    </f:facet>
+                                    <p:inputText value="#{item.make}">
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:inputText>
+                                    <p:inputText value="#{item.model}">
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:inputText>
+                                </p:column>
+                                <p:column width="40" >
                                     <f:facet name="header">
                                         <h:outputText value="Printer"/>
                                     </f:facet>
@@ -116,11 +135,14 @@
                                         <f:setPropertyActionListener value="#{item}" target="#{computerController.selected}" ></f:setPropertyActionListener>
                                     </p:commandButton>
 
+                                    <p:commandButton value="Delete" action="#{computerController.deleteSelected}" ajax="false" >
+                                        <f:setPropertyActionListener value="#{item}" target="#{computerController.selected}" ></f:setPropertyActionListener>
+                                    </p:commandButton>
                                 </p:column>
                                 <p:columnGroup type="footer">
                                     <p:row>
-                                        <p:column colspan="10" style="text-align:right" footerText="Totals:" />
-                                        <p:column footerText="$#{computerController.costTotal}" />
+                                        <p:column colspan="11" style="text-align:right" footerText="Totals:" />
+                                        <p:column footerText="#{computerController.costTotal}" />
                                     </p:row>
                                 </p:columnGroup>
                             </p:dataTable>
