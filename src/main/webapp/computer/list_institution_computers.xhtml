@@ -85,7 +85,7 @@
                                     </f:facet>
                                     <h:outputText value="#{item.serial}"/>
                                 </p:column>
-                                
+
                                 <p:column >
                                     <f:facet name="header">
                                         <h:outputText value="Printer"/>
@@ -98,7 +98,14 @@
                                     </f:facet>
                                     <h:outputText value="#{item.upsMake}"/>
                                 </p:column>
-
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Purchased Date"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dateOfPurchase}">
+                                        <f:convertDateTime pattern="dd-MM-yyyy" ></f:convertDateTime>
+                                    </h:outputText>
+                                </p:column>
                                 <p:column sortBy="#{item.totalCost}" filterBy="#{item.totalCost}">
                                     <f:facet name="header">
                                         <h:outputText value="Total Cost"/>

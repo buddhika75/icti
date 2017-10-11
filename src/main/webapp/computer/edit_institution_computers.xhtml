@@ -117,6 +117,14 @@
                                     </f:facet>
                                     <h:outputText value="#{item.upsMake}"/>
                                 </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Purchased Date"/>
+                                    </f:facet>
+                                    <p:calendar navigator="true" value="#{item.dateOfPurchase}" pattern="dd-MM-yyyy" >
+                                        <f:ajax event="blur" execute="@this" ></f:ajax>
+                                    </p:calendar>
+                                </p:column>
 
                                 <p:column sortBy="#{item.totalCost}" filterBy="#{item.totalCost}">
                                     <f:facet name="header">
